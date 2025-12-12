@@ -466,22 +466,22 @@
           <mxGeometry x="-60" y="220" as="geometry" />
         </mxCell>
         <mxCell id="OKwZ3E97VLJ5PZD1YPlq-10" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="102.54.183.2/30" vertex="1">
-          <mxGeometry x="430" y="90" as="geometry" />
+          <mxGeometry x="410" y="90" as="geometry" />
         </mxCell>
         <mxCell id="OKwZ3E97VLJ5PZD1YPlq-11" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="185.73.12.42/30" vertex="1">
-          <mxGeometry x="430" y="70" as="geometry" />
+          <mxGeometry x="410" y="70" as="geometry" />
         </mxCell>
         <mxCell id="OKwZ3E97VLJ5PZD1YPlq-12" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=light-dark(#d5e8d4, #ededed);" value="37.218.90.129/30" vertex="1">
           <mxGeometry x="520" y="220" as="geometry" />
         </mxCell>
         <mxCell id="OKwZ3E97VLJ5PZD1YPlq-13" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="37.218.90.130/30" vertex="1">
-          <mxGeometry x="520" y="130" as="geometry" />
+          <mxGeometry x="520" y="140" as="geometry" />
         </mxCell>
         <mxCell id="OKwZ3E97VLJ5PZD1YPlq-14" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=light-dark(#dae8fc, #ededed);" value="203.91.44.93/30" vertex="1">
           <mxGeometry x="1410" y="220" as="geometry" />
         </mxCell>
         <mxCell id="OKwZ3E97VLJ5PZD1YPlq-15" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="203.91.44.94/30" vertex="1">
-          <mxGeometry x="611" y="80" as="geometry" />
+          <mxGeometry x="630" y="80" as="geometry" />
         </mxCell>
         <mxCell id="OKwZ3E97VLJ5PZD1YPlq-16" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;rotation=90;strokeColor=light-dark(#2d67b9, #ededed);strokeWidth=3;horizontal=0;" value="TUNNEL" vertex="1">
           <mxGeometry height="403.75" width="40" x="850.005" y="31.034999999999997" as="geometry" />
