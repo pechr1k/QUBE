@@ -1,0 +1,10 @@
+spanning-tree bpduguard enable
+spanning-tree portfast
+switchport port-security maximum 2
+switchport port-security mac-address sticky
+switchport port-security violation restrict
+storm-control broadcast level 5.00
+storm-control multicast level 10.00
+storm-control action shutdown
+ip dhcp snooping limit rate 15
+ip arp inspection limit rate 15
