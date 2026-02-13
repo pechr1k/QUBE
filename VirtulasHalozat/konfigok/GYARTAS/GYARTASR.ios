@@ -1,0 +1,26 @@
+hostname GYARTAS_R
+ip access-list extended GUEST-ISOLATE
+deny ip 10.1.200.0 0.0.0.255 10.1.0.0 0.0.255.255
+permit ip 10.1.200.0 0.0.0.255 any
+ip access-list extended ADMIN-PROTECT
+permit ip 10.1.10.0 0.0.0.255 10.1.150.0 0.0.0.255
+deny ip any 10.1.150.0 0.0.0.255 
+permit ip any any
+int gig0/0
+description TermelesR_Fele
+no sh
+
+int gig0/0
+description CsomagolasR_Fele
+
+int fa0/1/0
+description AOffice_Fele
+no sh
+
+int fa0/1/1
+description ACsarnok_Fele
+no sh
+
+int fa0/1/2
+description IT_Fele
+no sh

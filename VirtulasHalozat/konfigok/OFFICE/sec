@@ -1,0 +1,12 @@
+no ip domain-lookup
+login block-for 120 attempts 3 within 60
+service password-encryption
+username admin privilege 15 secret 1234
+username user privilege 1 secret 1234
+line console 0
+login local
+exit
+line vty 0 4
+login local
+transport input ssh
+exit
