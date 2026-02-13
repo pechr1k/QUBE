@@ -38,10 +38,10 @@ spanning-tree vlan 10,20,30,40,50,60,70,80,150,200,999 priority 4096
 int range fa0/3-4
 description toFoldszintSW_ETHC1 
 sw mode trunk
-ip dhcp snooping trust
-ip arp inspection trust
 channel-group 1 mode active
 interface port-channel 1
+ip dhcp snooping trust
+ip arp inspection trust
 switchport mode trunk
 switchport trunk native vlan 999
 switchport trunk allowed vlan 10,20,30,40,50,60,70,80,150,200,999
@@ -49,10 +49,10 @@ switchport nonegotiate
 int range fa0/5-6
 description toEmeletSW_ETHC2
 sw mode trunk
-ip dhcp snooping trust
-ip arp inspection trust
 channel-group 2 mode active
 interface port-channel 2
+ip dhcp snooping trust
+ip arp inspection trust
 switchport mode trunk
 switchport trunk native vlan 999
 switchport trunk allowed vlan 10,20,30,40,50,60,70,80,150,200,999
