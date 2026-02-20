@@ -1,12 +1,29 @@
 hostname EMELET_SW
 vlan 999
 name NATIVE
+vlan 20
+name RECEPTION
+vlan 30
+name MANAGEMENT
+vlan 40
+name HR
+vlan 50
+name MARKETING
+vlan 60
+name LOGISTIC
+vlan 70
+name DEVELOPMENT
+vlan 80
+name COSTUMER_SERVICE
+vlan 10
+name IT
+vlan 200
+name GUEST
+vlan 150
+name ADMIN
 ip dhcp snooping
 ip dhcp snooping vlan 10,20,30,40,50,60,70,80,150,200,999
 ip arp inspection vlan 10,20,30,40,50,60,70,80,150,200,999
-vtp domain KOZPONT
-vtp mode client
-vtp password bundaskeny22
 spanning-tree mode rapid-pvst
 spanning-tree vlan 10,20,30,40,50,60,70,80,150,200,999 priority 8192
 int vlan 150

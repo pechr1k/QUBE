@@ -1,0 +1,17 @@
+ntp szinkronizálás
+
+
+vlan 20
+name RECEPTION
+vlan 30
+name MANAGEMENT
+vlan 40
+name OFFICE
+vlan 50
+name PRODUCTION
+vlan 60
+name WAREHOUSE
+vlan 10
+name IT
+vlan 90
+name PHONE

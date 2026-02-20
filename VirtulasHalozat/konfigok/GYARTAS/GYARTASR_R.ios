@@ -26,8 +26,6 @@ no sh
 
 int fa0/1/0
 description AOffice_Fele
-ip access-group GUEST-ISOLATE in
-ip access-group ADMIN-PROTECT in
 no sh
 int fa0/1/0.999
 encapsulation dot1q 999 native
@@ -79,13 +77,13 @@ encapsulation dot1q 999 native
 int fa0/1/1.200
 ip helper-address 10.3.10.5
 encapsulation dot1q 200
-ip address 10.3.200.128 255.255.255.128
+ip address 10.3.200.129 255.255.255.128
 ip access-group GUEST-ISOLATE in
 ip access-group ADMIN-PROTECT in
 int fa0/1/1.150
 ip helper-address 10.3.10.5
 encapsulation dot1q 150
-ip address 10.3.150.64 255.255.255.192
+ip address 10.3.150.65 255.255.255.192
 ip access-group GUEST-ISOLATE in
 ip access-group ADMIN-PROTECT in
 
@@ -122,6 +120,6 @@ ip access-group ADMIN-PROTECT in
 int fa0/1/2.150
 ip helper-address 10.3.10.5
 encapsulation dot1q 150
-ip address 10.3.150.128 255.255.255.192
+ip address 10.3.150.129 255.255.255.192
 ip access-group GUEST-ISOLATE in
 ip access-group ADMIN-PROTECT in
