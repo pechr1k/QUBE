@@ -1,19 +1,23 @@
-hostname BCSARNOK_SW
+hostname BOFFICE_SW
 ip dhcp snooping
-ip dhcp snooping vlan 50,60,150,999
-ip arp inspection vlan 50,60,150,999
+ip dhcp snooping vlan 20,30,40,90,150,999
+ip arp inspection vlan 20,30,40,90,150,999
 vlan 999
 name NATIVE
 vlan 150
-name ADMIN2
+name ADMIN1
 int vlan 150
-ip address 10.4.150.66
+ip address 10.4.150.2
 no sh
-ip default gateway 10.4.150.65
-vlan 50
-name PACKING
-vlan 60
-name WAREHOUSE
+ip default gateway 10.4.150.1
+vlan 20
+name RECEPTION
+vlan 30
+name MANAGEMENT
+vlan 40
+name LOGISTIC
+vlan 90
+name PHONE
 exit
 interface fa0/1
 description toCSOMAGOLAS_R
@@ -21,7 +25,7 @@ ip dhcp snooping trust
 ip arp inspection trust
 sw mode trunk
 switchport trunk native vlan 999
-switchport trunk allowed vlan 50,60,150,999
+switchport trunk allowed vlan 20,30,40,90,150,999
 switchport nonegotiate
 interface range fa0/5-20
 description toACCSESS
