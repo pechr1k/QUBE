@@ -11,5 +11,10 @@ login local
 transport input ssh
 exit
 
-
-10.3.200.128/25
+ntp authenticate
+ntp authentication-key 1 md5 jelszo
+ntp trusted-key 1
+ntp server 10.1.10.5
+ntp update-calendar
+clock timezone CET 1
+clock summer-time CEST recurring
