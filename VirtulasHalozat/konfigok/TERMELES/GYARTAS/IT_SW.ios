@@ -1,27 +1,66 @@
-hostname ACSARNOK_SW
+hostname IT_SW
 ip dhcp snooping
 ip dhcp snooping vlan 10,150,999
 ip arp inspection vlan 10,150,999
+
 vlan 999
 name NATIVE
 vlan 150
-name ADMIN2
-int vlan 150
-ip address 10.3.150.66
+name ADMIN
+int vlan 15
+ip address 10.3.150.5
 no sh
-ip default gateway 10.3.150.65
+ip default gateway 10.3.150.1
 vlan 10
 name IT
+vlan 20
+name RECEPTION
+vlan 30
+name MANAGEMENT
+vlan 40
+name OFFICE
+vlan 50
+name PRODUCTION
+vlan 60
+name WAREHOUSE
+vlan 90
+name PHONE
+vlan 200
+name GUEST
 exit
-interface fa0/1
+
+interface gig0/1
 description toGYARTAS_R
 ip dhcp snooping trust
 ip arp inspection trust
 sw mode trunk
 switchport trunk native vlan 999
-switchport trunk allowed vlan 10,150,999
+switchport trunk allowed vlan 10,20,30,40,50,60,90,150,999
 switchport nonegotiate
 spanning-tree bpduguard enable
+
+interface range fa0/1-2
+description toAOFFICESW_ETCH1
+channel-group 1 mode active
+interface port-channel 1
+ip dhcp snooping trust
+ip arp snooping trust
+sw mode trunk
+trunk native vlan 999
+switchport trunk allowed vlan 10,20,30,40,50,60,90,150,999
+switchport nonegotiate
+interface range fa0/3-4
+description toACSARNOKSW_ETCH2
+channel-group 2 mode active
+interface port-channel 2
+ip dhcp snooping trust
+ip arp snooping trust
+sw mode trunk
+trunk native vlan 999
+switchport trunk allowed vlan 10,20,30,40,50,60,90,150,999
+switchport nonegotiate
+
+
 interface range fa0/5-10
 description toSERVER
 ip dhcp snooping trust
@@ -35,3 +74,4 @@ spanning-tree bpduguard enable
 sw mode acc
 sw acc vlan 200
 storm-control broadcast level 40.00
+spanning-tree portfast

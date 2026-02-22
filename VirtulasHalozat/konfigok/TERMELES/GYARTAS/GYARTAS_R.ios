@@ -1,11 +1,5 @@
 hostname GYARTAS_R
-ip access-list extended ANTI-SPOOFING
-deny ip 10.0.0.0 0.255.255.255 any
-deny ip 172.16.0.0 0.15.255.255 any
-deny ip 192.168.0.0 0.0.255.255 any
-deny ip 127.0.0.0 0.255.255.255 any
-deny ip 169.254.0.0 0.0.255.255 any
-deny ip 224.0.0.0 15.255.255.255 any
+
 permit ip any any
 ip access-list extended GUEST-ISOLATE
 deny ip 10.3.200.0 0.0.0.255 10.3.0.0 0.0.255.255
@@ -19,98 +13,73 @@ description TermelesR_Fele
 ip address 192.168.2.2 255.255.255.252
 no sh
 
-int gig0/1
+int se0/0/0
 description CsomagolasR_Fele
 ip address 192.168.1.1 255.255.255.252
 no sh
 
-int fa0/1/0
-description AOffice_Fele
+int gig0/1
+description IT_SW_FELE
 no sh
-int fa0/1/0.999
+int gig0/1.999
 encapsulation dot1q 999 native
-int fa0/0.200
+int gig0/1.200
 ip helper-address 10.3.10.5
 encapsulation dot1q 200
-ip address 10.3.200.1 255.255.255.128
+ip address 10.3.200.1 255.255.255.0
 ip access-group GUEST-ISOLATE in
-int fa0/1/0.150
+int gig0/1.150
 ip helper-address 10.3.10.5
 encapsulation dot1q 150
 ip address 10.3.150.1 255.255.255.192
 ip access-group ADMIN-PROTECT in
 
-int fa0/1/0.20
+int gig0/1.10
+ip helper-address 10.3.10.5
+encapsulation dot1q 10
+ip address 10.3.10.1 255.255.255.0
+ip access-group ADMIN-PROTECT in
+int gig0/1.20
 ip helper-address 10.3.10.5
 encapsulation dot1q 20
 ip address 10.3.20.1 255.255.255.0
 ip access-group ADMIN-PROTECT in
-int fa0/1/0.30
+int gig0/1.30
 ip helper-address 10.3.10.5
 encapsulation dot1q 30
 ip address 10.3.30.1 255.255.255.0
 ip access-group ADMIN-PROTECT in
-int fa0/1/0.40
+int gig0/1.40
 ip helper-address 10.3.10.5
 encapsulation dot1q 40
 ip address 10.3.40.1 255.255.255.0
 ip access-group ADMIN-PROTECT in
-int fa0/1/0.90
+int gig0/1.50
+ip helper-address 10.3.10.5
+encapsulation dot1q 50
+ip address 10.3.50.1 255.255.255.0
+ip access-group ADMIN-PROTECT in
+int gig0/1.60
+ip helper-address 10.3.10.5
+encapsulation dot1q 60
+ip address 10.3.60.1 255.255.255.0
+ip access-group ADMIN-PROTECT in
+int gig0/1.70
+ip helper-address 10.3.10.5
+encapsulation dot1q 70
+ip address 10.3.70.1 255.255.255.0
+ip access-group ADMIN-PROTECT in
+int gig0/1.90
 ip helper-address 10.3.10.5
 encapsulation dot1q 90
 ip address 10.3.90.1 255.255.255.0
 ip access-group ADMIN-PROTECT in
 
-int fa0/1/1
-description ACsarnok_Fele
-no sh
-int fa0/1/1.999
-encapsulation dot1q 999 native
-int fa0/1/1.200
-ip helper-address 10.3.10.5
-encapsulation dot1q 200
-ip address 10.3.200.129 255.255.255.128
-ip access-group GUEST-ISOLATE in
-int fa0/1/1.150
-ip helper-address 10.3.10.5
-encapsulation dot1q 150
-ip address 10.3.150.65 255.255.255.192
-ip access-group ADMIN-PROTECT in
-
-int fa0/1/1.50
-ip helper-address 10.3.10.5
-encapsulation dot1q 50
-ip address 10.3.50.1 255.255.255.0
-ip access-group ADMIN-PROTECT in
-int fa0/1/1.60
-ip helper-address 10.3.10.5
-encapsulation dot1q 60
-ip address 10.3.60.1 255.255.255.0
-ip access-group ADMIN-PROTECT in
-int fa0/1/1.70
-ip helper-address 10.3.10.5
-encapsulation dot1q 70
-ip address 10.3.70.1 255.255.255.0
-ip access-group ADMIN-PROTECT in
-
-int fa0/1/2
-description IT_Fele
-no sh
-int fa0/1/2.999
-encapsulation dot1q 999 native
-int fa0/1/2.10
-ip helper-address 10.3.10.5
-encapsulation dot1q 10
-ip address 10.3.10.1 255.255.255.0
-ip access-group ADMIN-PROTECT in
-int fa0/1/2.150
-ip helper-address 10.3.10.5
-encapsulation dot1q 150
-ip address 10.3.150.129 255.255.255.192
-ip access-group ADMIN-PROTECT in
-
 router ospf 1
 router id 2.2.2.2
+passive-interface default
+no passive-interface gig0/0
+no passive-interface se/0/0/0
 network 192.168.1.0 0.0.0.3 area 0
 network 192.168.2.0 0.0.0.3 area 0
 network 10.3.0.0 0.0.255.255 area 0
