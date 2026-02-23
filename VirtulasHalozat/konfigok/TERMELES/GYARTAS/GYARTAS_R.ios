@@ -1,6 +1,5 @@
 hostname GYARTAS_R
 
-permit ip any any
 ip access-list extended GUEST-ISOLATE
 deny ip 10.3.200.0 0.0.0.255 10.3.0.0 0.0.255.255
 permit ip 10.3.200.0 0.0.0.255 any
@@ -11,11 +10,15 @@ permit ip any any
 int gig0/0
 description TermelesR_Fele
 ip address 192.168.2.2 255.255.255.252
+ip ospf message-digest-key 1 md5 jelszo
+ip ospf authentication message-digest
 no sh
 
 int se0/0/0
 description CsomagolasR_Fele
 ip address 192.168.1.1 255.255.255.252
+ip ospf message-digest-key 3 md5 jelszo
+ip ospf authentication message-digest
 no sh
 
 int gig0/1
@@ -76,10 +79,10 @@ ip address 10.3.90.1 255.255.255.0
 ip access-group ADMIN-PROTECT in
 
 router ospf 1
-router id 2.2.2.2
+router-id 2.2.2.2
 passive-interface default
 no passive-interface gig0/0
-no passive-interface se/0/0/0
+no passive-interface se0/0/0
 network 192.168.1.0 0.0.0.3 area 0
 network 192.168.2.0 0.0.0.3 area 0
 network 10.3.0.0 0.0.255.255 area 0

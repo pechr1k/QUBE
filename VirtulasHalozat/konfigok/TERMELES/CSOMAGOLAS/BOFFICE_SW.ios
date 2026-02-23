@@ -7,9 +7,9 @@ name NATIVE
 vlan 150
 name ADMIN
 int vlan 150
-ip address 10.4.150.2
+ip address 10.4.150.2 255.255.255.0
+ip default-gateway 10.4.150.1
 no sh
-ip default gateway 10.4.150.1
 vlan 20
 name RECEPTION
 vlan 30
@@ -26,6 +26,17 @@ vlan 200
 name GUEST
 exit
 
+interface gig0/1
+description toGYARTAS_R
+ip dhcp snooping trust
+ip arp inspection trust
+sw mode trunk
+switchport trunk native vlan 999
+switchport trunk allowed vlan 20,30,40,50,60,90,150,200,999
+switchport nonegotiate
+spanning-tree bpduguard enable
+
+
 interface range fa0/1-2
 description toBOFFICESW_ETCH1
 channel-group 1 mode passive
@@ -33,10 +44,11 @@ interface port-channel 1
 ip dhcp snooping trust
 ip arp snooping trust
 sw mode trunk
-trunk native vlan 999
+switchport trunk native vlan 999
 switchport trunk allowed vlan 20,30,40,50,60,90,150,200,999
 switchport nonegotiate
 
+interface range fa0/5-20
 description toACCSESS
 sw mode acc
 sw acc vlan 200

@@ -8,9 +8,9 @@ name NATIVE
 vlan 150
 name ADMIN
 int vlan 150
-ip address 10.3.150.6
 no sh
-ip default gateway 10.3.150.1
+ip address 10.3.150.6 255.255.255.0
+ip default-gateway 10.3.150.1
 vlan 10
 name IT
 vlan 20
@@ -38,7 +38,7 @@ interface port-channel 2
 ip dhcp snooping trust
 ip arp snooping trust
 sw mode trunk
-trunk native vlan 999
+switchport trunk native vlan 999
 switchport trunk allowed vlan 10,20,30,40,50,60,90,150,200,999
 switchport nonegotiate
 interface range fa0/3-4
@@ -48,10 +48,11 @@ interface port-channel 3
 ip dhcp snooping trust
 ip arp snooping trust
 sw mode trunk
-trunk native vlan 999
+switchport trunk native vlan 999
 switchport trunk allowed vlan 10,20,30,40,50,60,90,150,999
 switchport nonegotiate
 
+interface range fa0/5-20
 description toACCSESS
 sw mode acc
 sw acc vlan 200

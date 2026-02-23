@@ -1,6 +1,5 @@
 hostname GYARTAS_R
 
-permit ip any any
 ip access-list extended GUEST-ISOLATE
 deny ip 10.4.200.0 0.0.0.255 10.4.0.0 0.0.255.255
 permit ip 10.4.200.0 0.0.0.255 any
@@ -11,11 +10,15 @@ permit ip any any
 int gig0/0
 description TermelesR_Fele
 ip address 192.168.3.2 255.255.255.252
+ip ospf message-digest-key 2 md5 jelszo
+ip ospf authentication message-digest
 no sh
 
 int se0/0/0
 description GyartasR_Fele
 ip address 192.168.1.2 255.255.255.252
+ip ospf message-digest-key 3 md5 jelszo
+ip ospf authentication message-digest
 no sh
 
 int gig0/1
