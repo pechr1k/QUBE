@@ -7,12 +7,17 @@ deny ip 127.0.0.0 0.255.255.255 any
 deny ip 169.254.0.0 0.0.255.255 any
 deny ip 224.0.0.0 15.255.255.255 any
 permit ip any any
+ip access-list standard NAT-LAN
+permit 10.3.0.0 0.0.255.255
+permit 10.4.0.0 0.0.255.255
+
 
 int se0/0/0
 description ISP_Fele
 ip access-group ADMIN-PROTECT in
 ip address 203.91.44.93 255.255.255.252
 ip access-group ANTI-SPOOFING in
+ip nat outside
 no sh
 
 int gig0/0
@@ -20,6 +25,7 @@ description GyartasR_Fele
 ip address 192.168.2.1 255.255.255.252
 ip ospf message-digest-key 1 md5 jelszo
 ip ospf authentication message-digest
+ip nat inside
 no sh
 
 int gig0/1
@@ -27,6 +33,7 @@ description CsomagolasR_Fele
 ip address 192.168.3.1 255.255.255.252
 ip ospf message-digest-key 2 md5 jelszo
 ip ospf authentication message-digest
+ip nat inside
 no sh
 
 ip route 0.0.0.0 0.0.0.0 203.91.44.94
@@ -38,3 +45,4 @@ no passive-interface gig0/1
 network 192.168.2.0 0.0.0.3 area 0
 network 192.168.3.0 0.0.0.3 area 0
 default-information originate
+ip nat inside source list NAT-LAN interface se0/0/0 overload

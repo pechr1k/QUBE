@@ -76,3 +76,4 @@ sw acc vlan 200
 spanning-tree bpduguard enable
 spanning-tree portfast
 storm-control broadcast level 40.00
+dhcp snooping limit rate 5

@@ -3,6 +3,4 @@ többi eszköz dinamikus nat
 
 acl szűrés akettő épület között
 
-dhcp snooping limit rate
-
-chap, eap, radius (?)
+chap az isp felé
