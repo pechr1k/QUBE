@@ -16,6 +16,7 @@ deny ip any 10.1.150.0 0.0.0.255
 permit ip any any
 ip access-list standard NAT-LAN
 permit 10.1.0.0 0.0.255.255
+
 int gig0/0
 description Belso_halozat_fele
 ip helper-address 10.1.10.5

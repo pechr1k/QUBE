@@ -12,6 +12,7 @@ description TermelesR_Fele
 ip address 192.168.3.2 255.255.255.252
 ip ospf message-digest-key 2 md5 jelszo
 ip ospf authentication message-digest
+ip ospf network point-to-point
 no sh
 
 int se0/0/0
@@ -19,6 +20,7 @@ description GyartasR_Fele
 ip address 192.168.1.2 255.255.255.252
 ip ospf message-digest-key 3 md5 jelszo
 ip ospf authentication message-digest
+ip ospf network point-to-point
 no sh
 
 int gig0/1

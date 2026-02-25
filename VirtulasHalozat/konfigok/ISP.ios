@@ -1,4 +1,4 @@
-hostname TERMELES_R
+hostname ISP
 
 interface gig0/1
 description KOZPONT_B

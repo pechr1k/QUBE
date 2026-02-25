@@ -1,4 +1,5 @@
 hostname KOZPONT_BACKUP_R
+
 ip access-list extended ANTI-SPOOFING
 deny ip 10.1.0.0 0.0.255.255 any
 deny ip 172.16.0.0 0.15.255.255 any
@@ -16,6 +17,7 @@ deny ip any 10.1.150.0 0.0.0.255
 permit ip any any
 ip access-list standard NAT-LAN
 permit 10.1.0.0 0.0.255.255
+
 int Gig0/0
 description Belso_halo_fele
 ip helper-address 10.1.10.5

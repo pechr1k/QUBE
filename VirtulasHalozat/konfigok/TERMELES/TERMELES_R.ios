@@ -12,7 +12,6 @@ ip access-list standard NAT-LAN
 permit 10.3.0.0 0.0.255.255
 permit 10.4.0.0 0.0.255.255
 
-
 int se0/0/0
 description ISP_Fele
 ip access-group ADMIN-PROTECT in
@@ -26,6 +25,7 @@ description GyartasR_Fele
 ip address 192.168.2.1 255.255.255.252
 ip ospf message-digest-key 1 md5 jelszo
 ip ospf authentication message-digest
+ip ospf network point-to-point
 ip nat inside
 no sh
 
@@ -34,6 +34,7 @@ description CsomagolasR_Fele
 ip address 192.168.3.1 255.255.255.252
 ip ospf message-digest-key 2 md5 jelszo
 ip ospf authentication message-digest
+ip ospf network point-to-point
 ip nat inside
 no sh
 
