@@ -1,6 +1,7 @@
 hostname TERMELES_R
 ip access-list extended ANTI-SPOOFING
-deny ip 10.0.0.0 0.255.255.255 any
+deny ip 10.3.0.0 0.0.255.255 any
+deny ip 10.4.0.0 0.0.255.255 any
 deny ip 172.16.0.0 0.15.255.255 any
 deny ip 192.168.0.0 0.0.255.255 any
 deny ip 127.0.0.0 0.255.255.255 any
