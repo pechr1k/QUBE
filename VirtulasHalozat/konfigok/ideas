@@ -1,9 +1,5 @@
 fix című nat -> szerver fix cím
 
-acl szűrés a kettő épület között:
-management 30 10.3.30.0 elérjen mindent, mindkét oldalról
-office 40 10.3.40.0 elérje a logisticot
-phoneok kommunikálhassanak egymással
-gyartas it érje el a csomagolas 50,60at
-
 chap az isp felé (gatyaa)
+
+BOLT telephely

@@ -7,6 +7,14 @@ ip access-list extended ADMIN-PROTECT
 permit ip 10.3.10.0 0.0.0.255 10.3.150.0 0.0.0.255
 deny ip any 10.3.150.0 0.0.0.255 
 permit ip any any
+ip access-list extended INTERBUILDING-OUT
+permit ip 10.3.10.0 0.0.0.255 10.4.150.0 0.0.0.255
+permit ip 10.3.30.0 0.0.0.255 10.4.0.0 0.0.255.255
+permit ip 10.3.40.0 0.0.0.255 10.4.40.0 0.0.0.255
+permit ip 10.3.90.0 0.0.0.255 10.4.90.0 0.0.0.255
+deny ip 10.3.0.0 0.0.255.255 10.4.0.0 0.0.255.255 log
+permit ip any any
+
 int gig0/0
 description TermelesR_Fele
 ip address 192.168.2.2 255.255.255.252
@@ -21,6 +29,7 @@ ip address 192.168.1.1 255.255.255.252
 ip ospf message-digest-key 3 md5 jelszo
 ip ospf authentication message-digest
 ip ospf network point-to-point
+ip access-group INTERBUILDING-OUT out
 no sh
 
 int gig0/1
@@ -36,7 +45,7 @@ ip access-group GUEST-ISOLATE in
 int gig0/1.150
 ip helper-address 10.3.10.5
 encapsulation dot1q 150
-ip address 10.3.150.1 255.255.255.192
+ip address 10.3.150.1 255.255.255.0
 ip access-group ADMIN-PROTECT in
 
 int gig0/1.10
