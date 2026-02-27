@@ -1,4 +1,5 @@
 hostname ISP
+ipv6 unicast-routing
 
 interface gig0/1
 description KOZPONT_B
@@ -17,10 +18,10 @@ no shutdown
 
 interface se0/0/1
 description BOLT
-ip address 37.218.90.130 255.255.255.252
+ipv6 address 2a02:abcd:ffff:1::2/127
 no shutdown
 
 ip route 185.73.12.40 255.255.255.252 185.73.12.41
 ip route 102.54.183.0 255.255.255.252 102.54.183.1
-ip route 37.218.90.128 255.255.255.252 37.218.90.129
+ipv6 route 2a02:abcd:1234::/48 2a02:abcd:ffff:1::1
 ip route 203.91.44.92 255.255.255.252 203.91.44.93

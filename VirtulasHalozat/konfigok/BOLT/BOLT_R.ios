@@ -1,0 +1,53 @@
+hostname BOLT_R
+ip access-list extended ANTI-SPOOFING
+deny ip 10.1.0.0 0.0.255.255 any
+deny ip 172.16.0.0 0.15.255.255 any
+deny ip 192.168.0.0 0.0.255.255 any
+deny ip 127.0.0.0 0.255.255.255 any
+deny ip 169.254.0.0 0.0.255.255 any
+deny ip 224.0.0.0 15.255.255.255 any
+permit ip any any
+ipv6 access-list GUEST-ISOLATE
+deny ipv6 2a02:abcd:1234:200::/64 2a02:abcd:1234::/48
+permit ipv6 2a02:abcd:1234:200::/64 any
+ipv6 access-list ADMIN-PROTECT
+permit ipv6 2a02:abcd:1234:30::/64 2a02:abcd:1234:150::/64
+deny ipv6 any 2a02:abcd:1234:150::/64
+permit ipv6 any any
+
+ipv6 unicast-routing
+
+interface gig0/0
+description LAN-fele
+ipv6 enable
+no sh
+interface gig0/0.30
+encapsulation dot1Q 30
+ipv6 address 2a02:abcd:1234:30::1/64
+ipv6 enable
+interface gig0/0.40
+encapsulation dot1Q 40
+ipv6 address 2a02:abcd:1234:40::1/64
+ipv6 enable
+interface gig0/0.50
+encapsulation dot1Q 50
+ipv6 address 2a02:abcd:1234:50::1/64
+ipv6 enable
+interface gig0/0.150
+encapsulation dot1Q 150
+ip address 10.2.150.1 255.255.255.0
+encapsulation dot1Q 150
+ip access-group ADMIN-PROTECT in
+interface gig0/0.200
+encapsulation dot1Q 200
+ipv6 address 2a02:abcd:1234:200::1/64
+ipv6 enable
+
+in se0/0/0
+description WAN_fele
+no sh
+ipv6 enable
+ip access-group ANTI-SPOOFING in
+ipv6 address 2a02:abcd:ffff:1::1/127
+
+ipv6 route ::/0 2a02:abcd:ffff:1::2

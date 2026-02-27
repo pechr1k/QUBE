@@ -117,6 +117,7 @@ description WAN_fele
 no sh
 ip add 102.54.183.1 255.255.255.252
 ip nat outside
+ip access-group ANTI-SPOOFING in
 
 ip route 0.0.0.0 0.0.0.0 102.54.183.2
 ip nat inside source list NAT-LAN interface gig0/1 overload
