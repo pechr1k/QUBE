@@ -77,4 +77,3 @@ sw mode acc
 sw acc vlan 200
 storm-control broadcast level 40.00
 spanning-tree portfast
-dhcp snooping limit rate 5

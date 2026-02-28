@@ -1,6 +1,16 @@
 fix című nat -> szerver fix cím
 
-BOLT telephely
-snooping ki!
 acl in csak a szükséges portokon
+
+BOLT R:
+
+
 tunnel+vpn
+
+
+2a02:abcd:1234::/48  ← a cégnek kiosztott prefix
+LAN alhálózatok:
+2a02:abcd:1234:30::/64
+2a02:abcd:1234:40::/64
+2a02:abcd:1234:50::/64
+2a02:abcd:1234:200::/64
