@@ -48,6 +48,6 @@ description WAN_fele
 no sh
 ipv6 enable
 ip access-group ANTI-SPOOFING in
-ipv6 address 2a02:abcd:ffff:1::1/64
+ipv6 address 2a02:0db8:85a3:1c4f::1/64
 
 ipv6 route ::/0 se0/0/0

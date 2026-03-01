@@ -18,6 +18,8 @@ permit ip any any
 ip access-list standard NAT-LAN
 permit 10.1.0.0 0.0.255.255
 
+ipv6 unicast-routing
+
 int Gig0/0
 description Belso_halo_fele
 ip helper-address 10.1.10.5
@@ -92,9 +94,12 @@ ip nat inside
 ip helper-address 10.1.10.5
 encapsulation dot1q 10
 ip address 10.1.10.2 255.255.255.0
+standby version 2
 standby 10 ip 10.1.10.3
 standby 10 priority 100
 standby 10 preempt
+ipv6 address 2a02:abcd:1234:10::2/64
+standby 10 ipv6 autoconfig
 ip access-group GUEST-ISOLATE in
 ip access-group ADMIN-PROTECT in
 int gig0/0.200
@@ -117,9 +122,11 @@ ip access-group ADMIN-PROTECT in
 int gig0/1
 description WAN_fele
 ip access-group ANTI-SPOOFING in
+ipv6 address 2a01:7c8:0:daad::1/64
 no sh
 ip add 185.73.12.41 255.255.255.252
 ip nat outside
 
 ip route 0.0.0.0 0.0.0.0 185.73.12.42
+ipv6 route ::/0 gig0/1
 ip nat inside source list NAT-LAN interface gig0/1 overload

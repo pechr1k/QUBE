@@ -4,11 +4,13 @@ ipv6 unicast-routing
 interface gig0/1
 description KOZPONT_B
 ip address 185.73.12.42 255.255.255.252
+ipv6 address 2a01:7c8:0:daad::2/64
 no shutdown
 
 interface gig0/0
 description KOZPONT_M
 ip address 102.54.183.2 255.255.255.252
+ipv6 address 2a02:6b8:0:1234::2/64
 no shutdown
 
 interface se0/0/0
@@ -18,10 +20,12 @@ no shutdown
 
 interface se0/0/1
 description BOLT
-ipv6 address 2a02:abcd:ffff:1::2/64
+ipv6 address 2a02:0db8:85a3:1c4f::2/64
 no shutdown
 
 ip route 185.73.12.40 255.255.255.252 185.73.12.41
 ip route 102.54.183.0 255.255.255.252 102.54.183.1
-ipv6 route 2a02:abcd:1234::/48 2a02:abcd:ffff:1::1
+ipv6 route 2a02:abcd:1234::/48 2a02:0db8:85a3:1c4f::1
 ip route 203.91.44.92 255.255.255.252 203.91.44.93
+ipv6 route 2a02:abcd:1234::/48 2a02:6b8:0:1234::1
+ipv6 route 2a02:abcd:1234::/48 2a01:7c8:0:daad::1
