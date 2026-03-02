@@ -128,5 +128,10 @@ ip address 192.168.100.1 255.255.255.252
 tunnel source gig0/1
 tunnel destination 203.0.113.41
 tunnel mode gre ip
+no sh
 
-ip route 10.2.0.0 255.255.0.0 Tunnel1
+router ospf 1
+router-id 1.1.1.1
+network 10.1.0.0 0.0.255.255 area 1
+network 192.168.100.0 0.0.0.3 area 1
+passive-interface gig0/0

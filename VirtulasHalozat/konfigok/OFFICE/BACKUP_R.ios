@@ -129,4 +129,9 @@ tunnel mode gre ip
 
 ip route 0.0.0.0 0.0.0.0 185.73.12.42
 ip nat inside source list NAT-LAN interface gig0/1 overload
-ip route 10.2.0.0 255.255.0.0 Tunnel2
+
+router ospf 1
+router-id 2.2.2.2
+network 10.1.0.0 0.0.255.255 area 1
+network 192.168.200.0 0.0.0.3 area 1
+passive-interface gig0/0
