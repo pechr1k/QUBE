@@ -1,4 +1,5 @@
 hostname BOLT_R
+access-list 100 permit ip 10.0.0.0 0.0.0.255 any
 ip access-list extended ANTI-SPOOFING
 deny ip 10.1.0.0 0.0.255.255 any
 deny ip 172.16.0.0 0.15.255.255 any
@@ -15,33 +16,51 @@ permit ipv6 2a02:abcd:1234:30::/64 2a02:abcd:1234:150::/64
 deny ipv6 any 2a02:abcd:1234:150::/64
 permit ipv6 any any
 
+ip access-list standard NAT-LAN
+permit 10.2.0.0 0.0.255.255
+
 ipv6 unicast-routing
 
 interface gig0/0
 description LAN-fele
 ipv6 enable
 no sh
+
+interface gig0/0.20
+encapsulation dot1Q 20
+ip address 10.2.20.1 255.255.255.0
+ipv6 address 2a02:abcd:1234:20::1/64
+ipv6 enable
+ip nat inside
 interface gig0/0.30
 encapsulation dot1Q 30
+ip address 10.2.30.1 255.255.255.0
 ipv6 address 2a02:abcd:1234:30::1/64
 ipv6 enable
+ip nat inside
 interface gig0/0.40
 encapsulation dot1Q 40
+ip address 10.2.40.1 255.255.255.0
 ipv6 address 2a02:abcd:1234:40::1/64
 ipv6 enable
+ip nat inside
 interface gig0/0.50
 encapsulation dot1Q 50
+ip address 10.2.50.1 255.255.255.0
 ipv6 address 2a02:abcd:1234:50::1/64
 ipv6 enable
+ip nat inside
 interface gig0/0.150
 encapsulation dot1Q 150
 ip address 10.2.150.1 255.255.255.0
-encapsulation dot1Q 150
 ip access-group ADMIN-PROTECT in
 interface gig0/0.200
 encapsulation dot1Q 200
+ip address 10.2.200.1 255.255.255.0
 ipv6 address 2a02:abcd:1234:200::1/64
 ipv6 enable
+ip nat inside
+ip access-group GUEST-ISOLATE in
 
 interface se0/0/0
 description WAN_fele
@@ -49,5 +68,18 @@ no sh
 ipv6 enable
 ip access-group ANTI-SPOOFING in
 ipv6 address 2a02:0db8:85a3:1c4f::1/64
+ip address 203.0.113.41 255.255.255.252
+ip nat outside
 
 ipv6 route ::/0 se0/0/0
+ip route 0.0.0.0 0.0.0.0 203.0.113.42
+ip nat inside source list NAT-LAN interface se0/0/0 overload
+
+interface Tunnel1
+ip address 192.168.100.2 255.255.255.252
+tunnel source se0/0/0
+tunnel destination 102.54.183.1
+tunnel mode gre ip
+
+ip route 10.1.0.0 255.255.0.0 192.168.100.1
+ip route 10.2.0.0 255.255.0.0 Tunnel1

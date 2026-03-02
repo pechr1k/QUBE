@@ -1,4 +1,5 @@
 hostname KOZPONT_R
+access-list 100 permit ip 10.0.0.0 0.0.0.255 any
 ip access-list extended ANTI-SPOOFING
 deny ip 10.1.0.0 0.0.255.255 any
 deny ip 172.16.0.0 0.15.255.255 any
@@ -16,8 +17,6 @@ deny ip any 10.1.150.0 0.0.0.255
 permit ip any any
 ip access-list standard NAT-LAN
 permit 10.1.0.0 0.0.255.255
-
-ipv6 unicast-routing
 
 int gig0/0
 description Belso_halozat_fele
@@ -93,12 +92,9 @@ ip nat inside
 ip helper-address 10.1.10.5
 encapsulation dot1q 10
 ip address 10.1.10.1 255.255.255.0
-standby version 2
 standby 10 ip 10.1.10.3
 standby 10 priority 110
 standby 10 preempt
-ipv6 address 2a02:abcd:1234:10::1/64
-standby 10 ipv6 autoconfig
 ip access-group ADMIN-PROTECT in
 int gig0/0.200
 ip nat inside
@@ -121,10 +117,17 @@ int gig0/1
 description WAN_fele
 no sh
 ip add 102.54.183.1 255.255.255.252
-ipv6 address 2a02:6b8:0:1234::1/64
 ip nat outside
 ip access-group ANTI-SPOOFING in
 
 ip route 0.0.0.0 0.0.0.0 102.54.183.2
-ipv6 route ::/0 gig0/1
 ip nat inside source list NAT-LAN interface gig0/1 overload
+
+interface Tunnel1
+ip address 192.168.100.1 255.255.255.252
+tunnel source gig0/1
+tunnel destination 203.0.113.41
+tunnel mode gre ip
+
+ip route 10.2.0.0 255.255.0.0 192.168.100.2
+ip route 10.1.0.0 255.255.0.0 Tunnel1
