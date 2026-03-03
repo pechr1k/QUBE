@@ -120,15 +120,15 @@ ip access-group ANTI-SPOOFING in
 no sh
 ip add 185.73.12.41 255.255.255.252
 ip nat outside
+    
+ip route 0.0.0.0 0.0.0.0 185.73.12.42
+ip nat inside source list NAT-LAN interface gig0/1 overload
 
 interface Tunnel2
 ip address 192.168.200.1 255.255.255.252
 tunnel source gig0/1
 tunnel destination 203.0.113.41
 tunnel mode gre ip
-
-ip route 0.0.0.0 0.0.0.0 185.73.12.42
-ip nat inside source list NAT-LAN interface gig0/1 overload
 
 router ospf 1
 router-id 2.2.2.2
