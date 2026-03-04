@@ -130,4 +130,18 @@ tunnel source gig0/1
 tunnel destination 203.0.113.41
 tunnel mode gre ip
 
+<<<<<<< HEAD
 ip route 10.2.0.0 255.255.0.0 192.168.200.2
+=======
+<<<<<<< HEAD
+router ospf 1
+router-id 2.2.2.2
+network 10.1.0.0 0.0.255.255 area 1
+network 192.168.200.0 0.0.0.3 area 1
+passive-interface gig0/0
+=======
+ip route 0.0.0.0 0.0.0.0 185.73.12.42
+ip nat inside source list NAT-LAN interface gig0/1 overload
+ip route 10.2.0.0 255.255.0.0 Tunnel2
+>>>>>>> parent of eef9ddc (update)
+>>>>>>> ea61596326d02c56808d2fc5df60f8e4fe2ac6a4

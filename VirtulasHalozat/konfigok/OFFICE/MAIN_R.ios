@@ -129,4 +129,8 @@ tunnel source gig0/1
 tunnel destination 203.0.113.41
 tunnel mode gre ip
 
+<<<<<<< HEAD
 ip route 10.2.0.0 255.255.0.0 192.168.100.2
+=======
+ip route 10.2.0.0 255.255.0.0 Tunnel1
+>>>>>>> ea61596326d02c56808d2fc5df60f8e4fe2ac6a4
