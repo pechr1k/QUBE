@@ -40,7 +40,7 @@ no sh
 
 ip route 0.0.0.0 0.0.0.0 203.91.44.94
 router ospf 1
-router-id 4.4.4.4
+router-id 1.1.1.1
 passive-interface default
 no passive-interface gig0/0
 no passive-interface gig0/1
