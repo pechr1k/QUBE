@@ -31,28 +31,40 @@ interface gig0/0.20
     ipv6 address 2a02:abcd:1234:20::1/64
     ipv6 enable
     ip nat inside
+<<<<<<< HEAD
     ip helper-address 10.1.10.5
+=======
+>>>>>>> ea61596326d02c56808d2fc5df60f8e4fe2ac6a4
 interface gig0/0.30
     encapsulation dot1Q 30
     ip address 10.2.30.1 255.255.255.0
     ipv6 address 2a02:abcd:1234:30::1/64
     ipv6 enable
     ip nat inside
+<<<<<<< HEAD
     ip helper-address 10.1.10.5
+=======
+>>>>>>> ea61596326d02c56808d2fc5df60f8e4fe2ac6a4
 interface gig0/0.40
     encapsulation dot1Q 40
     ip address 10.2.40.1 255.255.255.0
     ipv6 address 2a02:abcd:1234:40::1/64
     ipv6 enable
     ip nat inside
+<<<<<<< HEAD
     ip helper-address 10.1.10.5
+=======
+>>>>>>> ea61596326d02c56808d2fc5df60f8e4fe2ac6a4
 interface gig0/0.50
     encapsulation dot1Q 50
     ip address 10.2.50.1 255.255.255.0
     ipv6 address 2a02:abcd:1234:50::1/64
     ipv6 enable
     ip nat inside
+<<<<<<< HEAD
     ip helper-address 10.1.10.5
+=======
+>>>>>>> ea61596326d02c56808d2fc5df60f8e4fe2ac6a4
 interface gig0/0.150
     encapsulation dot1Q 150
     ip address 10.2.150.1 255.255.255.0
@@ -64,7 +76,10 @@ interface gig0/0.200
     ipv6 enable
     ip nat inside
     ip access-group GUEST-ISOLATE in
+<<<<<<< HEAD
     ip helper-address 10.1.10.5
+=======
+>>>>>>> ea61596326d02c56808d2fc5df60f8e4fe2ac6a4
 
 interface se0/0/0
 description WAN_fele
@@ -91,4 +106,10 @@ tunnel source se0/0/0
 tunnel destination 185.73.12.41
 tunnel mode gre ip
 
+<<<<<<< HEAD
 ip route 10.1.0.0 255.255.0.0 192.168.100.1
+ip route 10.1.0.0 255.255.0.0 192.168.200.1
+=======
+ip route 10.1.0.0 255.255.0.0 Tunnel1
+ip route 10.1.0.0 255.255.0.0 Tunnel2
+>>>>>>> ea61596326d02c56808d2fc5df60f8e4fe2ac6a4
