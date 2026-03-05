@@ -121,7 +121,20 @@ ip nat outside
 ip access-group ANTI-SPOOFING in
 
 ip route 0.0.0.0 0.0.0.0 102.54.183.2
-ip nat inside source list NAT-LAN interface gig0/1 overload
+!ip nat inside source list NAT-LAN interface gig0/1 overload
+
+!DINAMIC
+ip access-list standard NAT-LAN
+deny 10.1.150.0 255.255.255.0
+deny 10.1.10.5
+deny 10.1.10.6
+permit 10.1.0.0 0.0.255.255
+ip nat pool NATPOOL 193.128.40.3 193.128.40.14 netmask 255.255.255.240
+ip nat inside source list NAT-LAN pool NATPOOL overload
+
+!STATIC
+ip nat inside source static 10.1.130.10 193.128.40.1
+ip nat inside source static 10.1.130.20 193.128.40.2
 
 interface Tunnel1
 ip address 192.168.100.1 255.255.255.252
@@ -129,8 +142,4 @@ tunnel source gig0/1
 tunnel destination 203.0.113.41
 tunnel mode gre ip
 
-<<<<<<< HEAD
 ip route 10.2.0.0 255.255.0.0 192.168.100.2
-=======
-ip route 10.2.0.0 255.255.0.0 Tunnel1
->>>>>>> ea61596326d02c56808d2fc5df60f8e4fe2ac6a4
