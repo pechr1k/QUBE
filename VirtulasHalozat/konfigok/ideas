@@ -1,13 +1,6 @@
-fix című nat -> szerver fix cím
-
 acl in csak a szükséges portokon, fixing
 
-BOLT R:
-
-
-tunnel+vpn
-
-
+    IPV6:
 2a02:abcd:1234::/48  ← a cégnek kiosztott prefix
 LAN alhálózatok:
 2a02:abcd:1234:30::/64
@@ -15,5 +8,7 @@ LAN alhálózatok:
 2a02:abcd:1234:50::/64
 2a02:abcd:1234:200::/64
 
-
 2a02:abcd:1234:10::5/64 -> szerver
+
+    NAT_OFFICE:
+204.231.55.0-30/26      255.255.255.224
