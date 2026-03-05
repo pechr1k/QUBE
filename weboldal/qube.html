@@ -2,73 +2,91 @@
 <html lang="hu">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qube IT Projekt - Központi Portál</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; color: #333; }
-        header { background: #2c3e50; color: white; padding: 1rem; text-align: center; }
-        nav { background: #34495e; padding: 0.5rem; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .container { padding: 20px; max-width: 1000px; margin: auto; }
-        .site-card { border-left: 5px solid #3498db; background: #f4f4f4; padding: 15px; margin-bottom: 20px; }
-        footer { text-align: center; padding: 20px; background: #eee; font-size: 0.8rem; }
-    </style>
+    <link rel="stylesheet" href="qube.css">
 </head>
 <body>
 
 <header>
-    <h1>Qube MiniPC - Hálózati Infrastruktúra</h1>
-    <p>Informatikai rendszer- és alkalmazás-üzemeltető vizsgaremek</p>
+    <div class="header-content">
+        <img src="logo.svg" alt="Qube Logo" class="main-logo">
+        <h1>QUBE <span class="highlight">Mini PC</span></h1>
+    </div>
 </header>
 
 <nav>
-    <a href="#topologia">Topológia</a>
-    <a href="#szolgaltatasok">Szolgáltatások</a>
-    <a href="#biztonsag">Biztonság</a>
-    <a href="#teszt">Tesztelés & Videó</a>
+    <ul>
+        <li><a href="#topologia">Topológia</a></li>
+        <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
+        <li><a href="#biztonsag">Biztonság</a></li>
+        <li><a href="#teszt">Tesztelés & Videó</a></li>
+    </ul>
 </nav>
 
-<div class="container">
-    <section id="topologia">
+<main class="container">
+    <section id="bemutatkozas" class="content-block">
+        <h2>A Projektről</h2>
+        <p class="intro-text">
+           Innovatív hálózati megoldások a Qube MiniPC számára. Projektünk a Székesfehérvár-Győr-Nyíregyháza tengelyen valósít meg egy teljesen redundáns, biztonságos és automatizált informatikai ökoszisztémát. A tervezéstől a prototípus kivitelezéséig a célunk egy olyan üzemeltetői környezet létrehozása volt, amely megfelel a modern ipari digitalizáció elvárásainak.
+        </p>
+    </section>
+
+    <section id="topologia" class="content-block">
         <h2>Hálózati Topológia</h2>
         <p>A hálózat három fő csomópontból áll: Székesfehérvár (HQ), Győr (Gyár) és Nyíregyháza (Üzlet).</p>
-        <div style="background: #ddd; height: 300px; display: flex; align-items: center; justify-content: center;">
+        <div class="topology-placeholder">
             [Hálózati ábra helye]
         </div>
     </section>
 
-    <section id="szolgaltatasok">
+    <section id="szolgaltatasok" class="content-block">
         <h2>Telephelyi Szolgáltatások</h2>
         
-        <div class="site-card">
-            <h3>Székesfehérvár (Központ)</h3>
-            <ul>
-                <li><strong>Active Directory:</strong> Központosított OU struktúra, GPO-k (háttérkép, tiltott testreszabás).</li>
-                <li><strong>IIS:</strong> Itt fut a belső vállalati portál.</li>
-                <li><strong>RADIUS:</strong> WPA2 Enterprise hitelesítés a vezeték nélküli hálózathoz.</li>
-            </ul>
-        </div>
+        <div class="site-grid">
+            <div class="site-card">
+                <h3>Székesfehérvár (HQ)</h3>
+                <ul>
+                    <li><strong>Active Directory:</strong> Központosított OU struktúra & GPO</li>
+                    <li><strong>DHCP / DNS / NTP:</strong> Központi kiszolgálás</li>
+                    <li><strong>IIS / RADIUS / TFTP:</strong> Vállalati szolgáltatások</li>
+                </ul>
+            </div>
 
-        <div class="site-card">
-            <h3>Győr (Gyár)</h3>
-            <ul>
-                <li>Helyi AD replikáció a gyorsabb bejelentkezéshez.</li>
-                <li>Helyi DHCP és DNS kiszolgálók a gyártósori eszközöknek.</li>
-            </ul>
+            <div class="site-card">
+                <h3>Győr (Gyár)</h3>
+                <ul>
+                    <li><strong>AD Replikáció:</strong> Helyi címtár elérés</li>
+                    <li><strong>IIS / RADIUS / TFTP:</strong> Helyi gyártási támogatás</li>
+                    <li><strong>DHCP & DNS:</strong> Helyi ipari hálózat</li>
+                </ul>
+            </div>
+
+            <div class="site-card">
+                <h3>Nyíregyháza (Üzlet)</h3>
+                <ul>
+                    <li><strong>Helyi DHCP & DNS:</strong> Gyors hálózati elérés</li>
+                    <li><strong>RADIUS & TFTP:</strong> Eszközkezelés és WiFi</li>
+                    <li><strong>VPN:</strong> Biztonságos központi elérés</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <section id="biztonsag">
+    <section id="biztonsag" class="content-block">
         <h2>Biztonsági Megvalósítások</h2>
-        <ul>
-            <li><strong>Tűzfal:</strong> Hardveres ASA/FortiGate szimuláció a külső forgalom szűrésére.</li>
-            <li><strong>ACL:</strong> Részleg alapú forgalomszűrés a VLAN-ok között.</li>
-            <li><strong>Automatizált mentés:</strong> Powershell/Bash scriptek a konfigurációk mentésére.</li>
-        </ul>
+        <div class="security-list">
+            <ul>
+                <li><strong>Tűzfal:</strong> Hardveres védelem a külső forgalom ellen.</li>
+                <li><strong>ACL:</strong> Részleg alapú szűrés a VLAN-ok között.</li>
+                <li><strong>Automatizált mentés:</strong> Powershell és Bash szkriptek használata.</li>
+            </ul>
+        </div>
     </section>
-</div>
+</main>
 
 <footer>
-    <p>&copy; 2024 - Vizsgacsapat: [Neveitek] | Informatikai technikus vizsgaremek</p>
+    <p>&copy; 2026 - Vizsgacsapat: Nyári Patrik, Gábriel Milán (13.b) | Informatikai technikus vizsgaremek</p>
 </footer>
 
 </body>
