@@ -25,7 +25,7 @@ description Belso_halozat_fele
     no sh
 int gig0/0.999
     encapsulation dot1q 999 native
-    int gig0/0.20
+int gig0/0.20
     ip nat inside
     ip helper-address 10.1.10.5
     encapsulation dot1q 20
@@ -128,12 +128,12 @@ ip access-list standard NAT_RULE
     deny 10.1.10.5
     deny 10.1.10.6
     permit 10.1.0.0 0.0.255.255
-ip nat pool NAT_POOL 204.231.55.1 204.231.55.13 netmask 255.255.255.224
+ip nat pool NAT_POOL 204.231.55.2 204.231.55.14 netmask 255.255.255.240
 ip nat inside source list NAT_RULE pool NAT_POOL overload
 
 !STATIC
-ip nat inside source static 10.1.10.7 204.231.55.27
-ip nat inside source static 10.1.10.6 204.231.55.28
+ip nat inside source static 10.1.10.5 204.231.55.1
+ip nat inside source static 10.1.10.6 204.231.55.17
 
 interface Tunnel1
     ip address 192.168.100.1 255.255.255.252
@@ -142,4 +142,4 @@ interface Tunnel1
     tunnel mode gre ip
 
 ip route 0.0.0.0 0.0.0.0 102.54.183.2
-ip route 10.2.0.0 2 55.255.0.0 192.168.100.2
+ip route 10.2.0.0 255.255.0.0 192.168.100.2
