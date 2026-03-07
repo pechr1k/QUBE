@@ -49,4 +49,9 @@ ip route 0.0.0.0 0.0.0.0 203.91.44.94
     network 192.168.3.0 0.0.0.3 area 0
     default-information originate
 
+interface Tunnel3
+    ip address 192.168.300.2 255.255.255.252
+    tunnel source se0/0/0
+    tunnel destination 
+
 ip nat inside source list NAT-LAN interface se0/0/0 overload

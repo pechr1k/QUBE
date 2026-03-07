@@ -128,6 +128,7 @@ ip access-list standard NAT_RULE
     deny 10.1.10.5
     deny 10.1.10.6
     permit 10.1.0.0 0.0.255.255
+    permit 10.2.0.0 0.0.255.255
 ip nat pool NAT_POOL 204.231.55.2 204.231.55.14 netmask 255.255.255.240
 ip nat inside source list NAT_RULE pool NAT_POOL overload
 

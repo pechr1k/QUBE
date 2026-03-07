@@ -21,6 +21,7 @@ interface se0/0/0
 description TERMELES
     ip address 203.91.44.94 255.255.255.252
     no shutdown
+    ip route 203.91.44.92 255.255.255.252 203.91.44.93
 
 interface se0/0/1
 description BOLT
