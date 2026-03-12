@@ -1,3 +1,5 @@
+LOGIKAI HSRP cím
+
 PHONE és SEC vlanokat kivenni a konfigokból
 
 ACL
