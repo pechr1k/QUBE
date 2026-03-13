@@ -1,14 +1,8 @@
-LOGIKAI HSRP cím
-
 PHONE és SEC vlanokat kivenni a konfigokból
-
 ACL
-
-CHAP virtualis
-
 NAT TUNNEL fixing
+ZABBIX
 
-VLAN script
-Port script
-vagy
-NetBox Ansible
+------RAER OSSZERAKAS UTAN: ------
+LOGIKAI HSRP cím (?)
+CHAP virtualis
