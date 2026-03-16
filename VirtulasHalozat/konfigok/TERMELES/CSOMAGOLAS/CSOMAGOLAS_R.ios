@@ -78,11 +78,6 @@ int gig0/1.70
     encapsulation dot1q 70
     ip address 10.4.70.1 255.255.255.0
     ip access-group ADMIN-PROTECT in
-int gig0/1.90
-    ip helper-address 10.3.10.5
-    encapsulation dot1q 90
-    ip address 10.4.90.1 255.255.255.0
-    ip access-group ADMIN-PROTECT in
 
 router ospf 1
     router-id 3.3.3.3

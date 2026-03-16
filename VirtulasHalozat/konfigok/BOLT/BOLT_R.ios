@@ -44,13 +44,6 @@ interface gig0/0.40
     ipv6 enable
     ip nat inside
     ip helper-address 10.1.10.5
-interface gig0/0.50
-    encapsulation dot1Q 50
-    ip address 10.2.50.1 255.255.255.0
-    ipv6 address 2a02:abcd:1234:50::1/64
-    ipv6 enable
-    ip nat inside
-    ip helper-address 10.1.10.5
 interface gig0/0.150
     encapsulation dot1Q 150
     ip address 10.2.150.1 255.255.255.0

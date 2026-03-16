@@ -1,8 +1,8 @@
 hostname BCSARNOK_SW
 
 ip dhcp snooping
-ip dhcp snooping vlan 20,30,40,50,60,90,150,200,999
-ip arp inspection vlan 20,30,40,50,60,90,150,200,999
+ip dhcp snooping vlan 20,30,40,50,60,150,200,999
+ip arp inspection vlan 20,30,40,50,60,150,200,999
 
 vlan 999
     name NATIVE
@@ -22,8 +22,6 @@ vlan 50
     name PACKING
 vlan 60
     name WAREHOUSE
-vlan 90
-    name PHONE
 vlan 200
     name GUEST
 exit
@@ -34,7 +32,7 @@ description toCSOMAGOLAS_R
     ip arp inspection trust
     sw mode trunk
     switchport trunk native vlan 999
-    switchport trunk allowed vlan 20,30,40,50,60,90,150,200,999
+    switchport trunk allowed vlan 20,30,40,50,60,150,200,999
     switchport nonegotiate
     spanning-tree bpduguard enable
 interface range fa0/1-2
@@ -45,7 +43,7 @@ description toBOFFICESW_ETCH1
     ip arp snooping trust
     sw mode trunk
     switchport trunk native vlan 999
-    switchport trunk allowed vlan 20,30,40,50,60,90,150,200,999
+    switchport trunk allowed vlan 20,30,40,50,60,150,200,999
     switchport nonegotiate
 
 interface range fa0/5-20

@@ -1,8 +1,8 @@
 hostname BOLT_SW
 
 ip dhcp snooping
-ip dhcp snooping vlan 20,30,40,50,60,150,200,999
-ip arp inspection vlan 20,30,40,50,60,150,200,999
+ip dhcp snooping vlan 20,30,40,150,200,999
+ip arp inspection vlan 20,30,40,150,200,999
 
 vlan 20
     name KASSZA
@@ -10,8 +10,6 @@ vlan 30
     name IRODA
 vlan 40
     name RAKTAR
-vlan 50
-    name SECURITY
 vlan 150
     name ADMIN
 int vlan 150
@@ -30,7 +28,7 @@ description BOLT_R_fele
     ip arp inspection trust
     sw mode trunk
     sw trunk native vlan 999
-    switchport trunk allowed vlan 20,30,40,50,150,200,999
+    switchport trunk allowed vlan 20,30,40,150,200,999
     switchport nonegotiate
 
 interface range fa0/10-20

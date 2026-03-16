@@ -1,6 +1,8 @@
-PHONE és SEC vlanokat kivenni a konfigokból
 ACL
-NAT TUNNEL fixing
+WAN out
+ -Anti spofing
+ -Network out
+
 ZABBIX
 
 ------RAER OSSZERAKAS UTAN: ------
