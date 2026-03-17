@@ -1,13 +1,46 @@
 hostname KOZPONT_BACKUP_R
 
-ip access-list extended ANTI-SPOOFING
-    deny ip 10.1.0.0 0.0.255.255 any
-    deny ip 172.16.0.0 0.15.255.255 any
-    deny ip 192.168.0.0 0.0.255.255 any
-    deny ip 127.0.0.0 0.255.255.255 any
-    deny ip 169.254.0.0 0.0.255.255 any
-    deny ip 224.0.0.0 15.255.255.255 any
-    permit ip any any
+ip access-list extended WAN-inbound
+    ! BOGON FILTER
+    deny ip 0.0.0.0 0.255.255.255 any  
+    deny ip 10.0.0.0 0.255.255.255 any  
+    deny ip 127.0.0.0 0.255.255.255 any  
+    deny ip 172.16.0.0 0.15.255.255 any  
+    deny ip 192.168.0.0 0.0.255.255 any  
+    deny ip 224.0.0.0 15.255.255.255 any  
+    deny ip 240.0.0.0 7.255.255.255 any  
+    deny ip 248.0.0.0 7.255.255.255 any  
+    deny ip host 255.255.255.255 any  
+    ! Saját publikus tartomány spoof védelem
+    deny ip 204.231.55.0 0.0.0.31 any
+    ! Established (visszatérő TCP)
+    permit tcp any 10.1.0.0 0.0.255.255 established
+    ! JUNK (Windows zaj)
+    deny tcp any any eq 135  
+    deny udp any any eq 135  
+    deny tcp any any eq 137  
+    deny udp any any eq 137  
+    deny tcp any any eq 138  
+    deny udp any any eq 138  
+    deny tcp any any eq 139  
+    deny udp any any eq 139  
+    deny udp any any eq 1434
+    ! ICMP (minimal, de hasznos)
+    permit icmp any any echo-reply  
+    permit icmp any any unreachable  
+    permit icmp any any echo  
+    permit icmp any any ttl-exceeded  
+    ! WEB szerver
+    permit tcp any host 204.231.55.1 eq 80
+    permit tcp any host 204.231.55.1 eq 443
+    ! VPN (GRE over IPsec)
+    permit udp host 203.0.113.41 host 185.73.12.41 eq 500
+    permit udp host 203.0.113.41 host 185.73.12.41 eq 4500
+    permit esp host 203.0.113.41 host 185.73.12.41
+    permit gre host 203.0.113.41 host 185.73.12.41
+    ! DEFAULT DENY
+    deny ip any any
+
 ip access-list extended GUEST-ISOLATE
     deny ip 10.1.200.0 0.0.0.255 10.1.0.0 0.0.255.255
     permit ip 10.1.200.0 0.0.0.255 any
@@ -117,7 +150,7 @@ int gig0/0.150
 
 int gig0/1
 description WAN_fele
-    ip access-group ANTI-SPOOFING in
+    ip access-group WAN-inbound in
     no sh
     ip add 185.73.12.41 255.255.255.252
     ip nat outside
