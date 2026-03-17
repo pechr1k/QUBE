@@ -1,0 +1,178 @@
+hostname KOZPONT_R
+
+ip access-list extended WAN-inbound
+    ! BOGON FILTER
+    deny ip 0.0.0.0 0.255.255.255 any  
+    deny ip 10.0.0.0 0.255.255.255 any  
+    deny ip 127.0.0.0 0.255.255.255 any  
+    deny ip 172.16.0.0 0.15.255.255 any  
+    deny ip 192.168.0.0 0.0.255.255 any  
+    deny ip 224.0.0.0 15.255.255.255 any  
+    deny ip 240.0.0.0 7.255.255.255 any  
+    deny ip 248.0.0.0 7.255.255.255 any  
+    deny ip host 255.255.255.255 any  
+    ! Saját publikus tartomány spoof védelem
+    deny ip 204.231.55.0 0.0.0.31 any
+    ! Established (visszatérő TCP)
+    permit tcp any 10.1.0.0 0.0.255.255 established
+    ! JUNK (Windows zaj)
+    deny tcp any any eq 135  
+    deny udp any any eq 135  
+    deny tcp any any eq 137  
+    deny udp any any eq 137  
+    deny tcp any any eq 138  
+    deny udp any any eq 138  
+    deny tcp any any eq 139  
+    deny udp any any eq 139  
+    deny udp any any eq 1434
+    ! ICMP (minimal, de hasznos)
+    permit icmp any any echo-reply  
+    permit icmp any any unreachable  
+    permit icmp any any echo  
+    permit icmp any any ttl-exceeded  
+    ! WEB szerver
+    permit tcp any host 204.231.55.1 eq 80
+    permit tcp any host 204.231.55.1 eq 443
+    ! VPN (GRE over IPsec)
+    permit udp host 203.0.113.41 host 102.54.183.1 eq 500
+    permit udp host 203.0.113.41 host 102.54.183.1 eq 4500
+    permit esp host 203.0.113.41 host 102.54.183.1
+    permit gre host 203.0.113.41 host 102.54.183.1
+    ! DEFAULT DENY
+    deny ip any any
+
+ip access-list extended GUEST-ISOLATE
+    deny ip 10.1.200.0 0.0.0.255 10.1.0.0 0.0.255.255
+    permit ip 10.1.200.0 0.0.0.255 any
+ip access-list extended ADMIN-PROTECT
+    permit ip 10.1.10.0 0.0.0.255 10.1.150.0 0.0.0.255
+    deny ip any 10.1.150.0 0.0.0.255 
+    permit ip any any
+ip access-list standard NAT-LAN
+    permit 10.1.0.0 0.0.255.255
+
+int gig0/0
+description Belso_halozat_fele
+    ip helper-address 10.1.10.5
+    no sh
+int gig0/0.999
+    encapsulation dot1q 999 native
+int gig0/0.20
+    ip nat inside
+    ip helper-address 10.1.10.5
+    encapsulation dot1q 20
+    ip address 10.1.20.1 255.255.255.0
+    standby 20 ip 10.1.20.3
+    standby 20 priority 100
+    standby 20 preempt
+    ip access-group ADMIN-PROTECT in
+int gig0/0.30
+    ip nat inside
+    ip helper-address 10.1.10.5
+    encapsulation dot1q 30
+    ip address 10.1.30.1 255.255.255.0
+    standby 30 ip 10.1.30.3
+    standby 30 priority 100
+    standby 30 preempt
+    ip access-group ADMIN-PROTECT in
+int gig0/0.40
+    ip nat inside
+    ip helper-address 10.1.10.5
+    encapsulation dot1q 40
+    ip address 10.1.40.1 255.255.255.0
+    standby 40 ip 10.1.40.3
+    standby 40 priority 100
+    standby 40 preempt
+    ip access-group ADMIN-PROTECT in
+int gig0/0.50
+    ip nat inside
+    ip helper-address 10.1.10.5
+    encapsulation dot1q 50
+    ip address 10.1.50.1 255.255.255.0
+    standby 50 ip 10.1.50.3
+    standby 50 priority 100
+    standby 50 preempt
+    ip access-group ADMIN-PROTECT in
+int gig0/0.60
+    ip nat inside
+    ip helper-address 10.1.10.5
+    encapsulation dot1q 60
+    ip address 10.1.60.1 255.255.255.0
+    standby 60 ip 10.1.60.3
+    standby 60 priority 100
+    standby 60 preempt
+    ip access-group ADMIN-PROTECT in
+int gig0/0.70
+    ip nat inside
+    ip helper-address 10.1.10.5
+    encapsulation dot1q 70
+    ip address 10.1.70.1 255.255.255.0
+    standby 70 ip 10.1.70.3
+    standby 70 priority 110
+    standby 70 preempt
+    ip access-group ADMIN-PROTECT in
+int gig0/0.80
+    ip nat inside
+    ip helper-address 10.1.10.5
+    encapsulation dot1q 80
+    ip address 10.1.80.1 255.255.255.0
+    standby 80 ip 10.1.80.3
+    standby 80 priority 110
+    standby 80 preempt
+    ip access-group ADMIN-PROTECT in
+int gig0/0.10
+    ip nat inside
+    ip helper-address 10.1.10.5
+    encapsulation dot1q 10
+    ip address 10.1.10.1 255.255.255.0
+    standby 10 ip 10.1.10.3
+    standby 10 priority 110
+    standby 10 preempt
+    ip access-group ADMIN-PROTECT in
+int gig0/0.200
+    ip nat inside
+    ip helper-address 10.1.10.5
+    encapsulation dot1q 200
+    ip address 10.1.200.1 255.255.255.0
+    standby 200 ip 10.1.200.3
+    standby 200 priority 110
+    standby 200 preempt
+    ip access-group GUEST-ISOLATE in
+int gig0/0.150
+    ip helper-address 10.1.10.5
+    encapsulation dot1q 150
+    ip address 10.1.150.1 255.255.255.0
+    standby 150 ip 10.1.150.3
+    standby 150 priority 110
+    standby 150 preempt
+    ip access-group ADMIN-PROTECT in
+
+int gig0/1
+description WAN_fele
+    no sh
+    ip add 102.54.183.1 255.255.255.252
+    ip nat outside
+    ip access-group WAN-inbound in
+
+!DINAMIC
+ip access-list standard NAT_RULE
+    deny 10.1.150.0 255.255.255.0
+    deny 10.1.10.5
+    deny 10.1.10.6
+    permit 10.1.0.0 0.0.255.255
+    permit 10.2.0.0 0.0.255.255
+ip nat pool NAT_POOL 204.231.55.2 204.231.55.14 netmask 255.255.255.240
+ip nat inside source list NAT_RULE pool NAT_POOL overload
+
+!STATIC
+ip nat inside source static 10.1.10.5 204.231.55.1
+ip nat inside source static 10.1.10.6 204.231.55.17
+
+interface Tunnel1
+    ip address 192.168.100.1 255.255.255.252
+    tunnel source gig0/1
+    tunnel destination 203.0.113.41
+    tunnel mode gre ip
+
+ip route 0.0.0.0 0.0.0.0 102.54.183.2
+ip route 10.2.0.0 255.255.0.0 192.168.100.2

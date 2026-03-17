@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qube IT Projekt - Központi Portál</title>
+    <link rel="stylesheet" href="qube.css">
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <img src="logo.svg" alt="Qube Logo" class="main-logo">
+        <h1>QUBE <span class="highlight">Mini PC</span></h1>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#topologia">Topológia</a></li>
+        <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
+        <li><a href="#biztonsag">Biztonság</a></li>
+        <li><a href="#teszt">Tesztelés & Videó</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+    <section id="bemutatkozas" class="content-block">
+        <h2>A Projektről</h2>
+        <p class="intro-text">
+           Innovatív hálózati megoldások a Qube MiniPC számára. Projektünk a Székesfehérvár-Győr-Nyíregyháza tengelyen valósít meg egy teljesen redundáns, biztonságos és automatizált informatikai ökoszisztémát. A tervezéstől a prototípus kivitelezéséig a célunk egy olyan üzemeltetői környezet létrehozása volt, amely megfelel a modern ipari digitalizáció elvárásainak.
+        </p>
+    </section>
+
+    <section id="topologia" class="content-block">
+        <h2>Hálózati Topológia</h2>
+        <p>A hálózat három fő csomópontból áll: Székesfehérvár (HQ), Győr (Gyár) és Nyíregyháza (Üzlet).</p>
+        <div class="topology-placeholder">
+            [Hálózati ábra helye]
+        </div>
+    </section>
+
+    <section id="szolgaltatasok" class="content-block">
+        <h2>Telephelyi Szolgáltatások</h2>
+        
+        <div class="site-grid">
+            <div class="site-card">
+                <h3>Székesfehérvár (HQ)</h3>
+                <ul>
+                    <li><strong>Active Directory:</strong> Központosított OU struktúra & GPO</li>
+                    <li><strong>DHCP / DNS / NTP:</strong> Központi kiszolgálás</li>
+                    <li><strong>IIS / RADIUS / TFTP:</strong> Vállalati szolgáltatások</li>
+                </ul>
+            </div>
+
+            <div class="site-card">
+                <h3>Győr (Gyár)</h3>
+                <ul>
+                    <li><strong>AD Replikáció:</strong> Helyi címtár elérés</li>
+                    <li><strong>IIS / RADIUS / TFTP:</strong> Helyi gyártási támogatás</li>
+                    <li><strong>DHCP & DNS:</strong> Helyi ipari hálózat</li>
+                </ul>
+            </div>
+
+            <div class="site-card">
+                <h3>Nyíregyháza (Üzlet)</h3>
+                <ul>
+                    <li><strong>Helyi DHCP & DNS:</strong> Gyors hálózati elérés</li>
+                    <li><strong>RADIUS & TFTP:</strong> Eszközkezelés és WiFi</li>
+                    <li><strong>VPN:</strong> Biztonságos központi elérés</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="biztonsag" class="content-block">
+        <h2>Biztonsági Megvalósítások</h2>
+        <div class="security-list">
+            <ul>
+                <li><strong>Tűzfal:</strong> Hardveres védelem a külső forgalom ellen.</li>
+                <li><strong>ACL:</strong> Részleg alapú szűrés a VLAN-ok között.</li>
+                <li><strong>Automatizált mentés:</strong> Powershell és Bash szkriptek használata.</li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 - Vizsgacsapat: Nyári Patrik, Gábriel Milán (13.b) | Informatikai technikus vizsgaremek</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+ACL
+WAN out
+ -Anti spofing
+ -Network out
+
+ZABBIX
+
+------RAER OSSZERAKAS UTAN: ------
+LOGIKAI HSRP cím (?)
+CHAP virtualis
