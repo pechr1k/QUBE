@@ -15,6 +15,7 @@ ip access-list extended INTERBUILDING-OUT
     deny ip 10.4.0.0 0.0.255.255 10.3.0.0 0.0.255.255
     permit ip any any
 
+
 int gig0/0
 description TermelesR_Fele
     ip address 192.168.3.2 255.255.255.252
