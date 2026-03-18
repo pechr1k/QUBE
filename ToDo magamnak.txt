@@ -1,8 +1,4 @@
-ACL
-WAN out
- -Anti spofing
- -Network out
-
+script
 ZABBIX
 
 ------RAER OSSZERAKAS UTAN: ------
