@@ -5,7 +5,7 @@ ip dhcp snooping vlan 20,30,40,150,200,999
 ip arp inspection vlan 20,30,40,150,200,999
 
 vlan 20
-    name 
+    name KASSZA
 vlan 30
     name IRODA
 vlan 40
@@ -21,7 +21,7 @@ vlan 200
 vlan 999
     name NATIVE
 
-int fa0/1
+int gigabit1/0/1
 description BOLT_R_fele
     no sh
     ip dhcp snooping trust
@@ -31,7 +31,7 @@ description BOLT_R_fele
     switchport trunk allowed vlan 20,30,40,150,200,999
     switchport nonegotiate
 
-interface range fa0/10-20
+interface range gigabit1/0/5-10
 description toACCSESS
     sw mode acc
     sw acc vlan 200

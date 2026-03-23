@@ -14,6 +14,6 @@ ntp authenticate
 ntp authentication-key 1 md5 jelszo
 ntp trusted-key 1
 ntp server 10.1.10.5
-ntp update-calendar
 clock timezone CET 1
 clock timezone CEST 0
+do write
