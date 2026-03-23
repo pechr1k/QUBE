@@ -1,0 +1,3 @@
+snmp-server community PUBLIC RO
+snmp-server host 10.1.10.7 version 2c PUBLIC
+snmp-server location KOZPONT
