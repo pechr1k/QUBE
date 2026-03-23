@@ -24,3 +24,5 @@ description BOLT
     no shutdown
 ipv6 route 2a02:abcd:1234::/48 2a02:0db8:85a3:1c4f::1
 ip route 203.0.113.40 255.255.255.252 203.0.113.41
+
+do write

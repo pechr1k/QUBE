@@ -89,3 +89,23 @@ ip route 0.0.0.0 0.0.0.0 203.0.113.42
 ipv6 route ::/0 fa0/0
 ip route 10.1.0.0 255.255.0.0 192.168.100.1
 ip route 10.1.0.0 255.255.0.0 192.168.200.1
+
+no ip domain-lookup
+login block-for 120 attempts 3 within 60
+service password-encryption
+username admin privilege 15 secret 1234
+username user privilege 1 secret 1234
+line console 0
+login local
+exit
+line vty 0 4
+login local
+transport input ssh
+exit
+ntp authenticate
+ntp authentication-key 1 md5 jelszo
+ntp trusted-key 1
+ntp server 10.1.10.5
+clock timezone CET 1
+clock timezone CEST 0
+do write
