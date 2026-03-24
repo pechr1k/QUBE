@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Safari/537.36" version="29.6.4">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.5">
   <diagram name="Oldal-1" id="A54sxu54XGUslNclZXXZ">
-    <mxGraphModel dx="719" dy="369" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1097" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -119,7 +119,7 @@
         <mxCell id="CJ55euDttgTK4Hb038bu-18" edge="1" parent="1" source="CJ55euDttgTK4Hb038bu-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;endArrow=none;endFill=0;" target="CJ55euDttgTK4Hb038bu-8">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="CJ55euDttgTK4Hb038bu-41" connectable="0" parent="CJ55euDttgTK4Hb038bu-18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="gig 0/0/2" vertex="1">
+        <mxCell id="CJ55euDttgTK4Hb038bu-41" connectable="0" parent="CJ55euDttgTK4Hb038bu-18" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="gig 0/1/0" vertex="1">
           <mxGeometry relative="1" x="-0.8314" y="-1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
