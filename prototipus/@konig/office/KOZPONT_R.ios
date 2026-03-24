@@ -136,17 +136,7 @@ interface Tunnel1
 ip route 0.0.0.0 0.0.0.0 102.54.183.2
 ip route 10.2.0.0 255.255.0.0 192.168.100.2
 
-no ip domain-lookup
-login block-for 120 attempts 3 within 60
-service password-encryption
-username admin privilege 15 secret 1234
-username user privilege 1 secret 1234
-line console 0
-login local
-exit
-line vty 0 4
-login local
-exit
+
 ntp authenticate
 ntp authentication-key 1 md5 jelszo
 ntp trusted-key 1
