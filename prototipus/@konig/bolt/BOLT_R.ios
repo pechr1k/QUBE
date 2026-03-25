@@ -37,6 +37,7 @@ interface fa0/1.30
     ipv6 address 2a02:abcd:1234:30::1/64
     ipv6 enable
     ip nat inside
+    ip helper-address 10.1.10.5
 interface fa0/1.40
     encapsulation dot1Q 40
     ip address 10.2.40.1 255.255.255.0

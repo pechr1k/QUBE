@@ -17,7 +17,7 @@ description KOZPONT_B
 ip route 204.231.55.16 255.255.255.240 185.73.12.41    
 ip route 185.73.12.40 255.255.255.252 185.73.12.41
 
-interface gigabit0/0/2
+interface GigabitEthernet 0/2/0
 description BOLT
     ipv6 address 2a02:0db8:85a3:1c4f::2/64
     ip address 203.0.113.42 255.255.255.252

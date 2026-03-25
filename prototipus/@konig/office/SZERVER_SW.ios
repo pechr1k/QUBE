@@ -1,8 +1,8 @@
 hostname SZERVER_SW
 
-ip dhcp snooping
-ip dhcp snooping vlan 10,20,30,40,50,60,70,80,150,200,999
-ip arp inspection vlan 10,20,30,40,50,60,70,80,150,200,999
+no ip dhcp snooping
+no ip dhcp snooping vlan 10,20,30,40,50,60,70,80,150,200,999
+no ip arp inspection vlan 10,20,30,40,50,60,70,80,150,200,999
 
 vlan 999
     name NATIVE
@@ -74,7 +74,7 @@ description toSERVER
     sw mode acc
     sw acc vlan 10
     spanning-tree bpduguard enable
-interface range gigabit1/0/5-10
+interface range gigabit1/0/15-20
 description toACCSESS
     sw mode acc
     sw acc vlan 200
@@ -82,22 +82,10 @@ description toACCSESS
     spanning-tree portfast
     storm-control broadcast level 40.00
 
-no ip domain-lookup
-login block-for 120 attempts 3 within 60
-service password-encryption
-username admin privilege 15 secret 1234
-username user privilege 1 secret 1234
-line console 0
-login local
-exit
-line vty 0 4
-login local
-transport input ssh
-exit
 ntp authenticate
 ntp authentication-key 1 md5 jelszo
 ntp trusted-key 1
-ntp server 10.1.10.5
+ntp server 10.1.10.6
 clock timezone CET 1
 clock timezone CEST 0
 do write
