@@ -120,12 +120,13 @@ ip access-list standard NAT_RULE
     deny 10.1.10.6
     permit 10.1.0.0 0.0.255.255
     permit 10.2.0.0 0.0.255.255
-ip nat pool NAT_POOL 204.231.55.2 204.231.55.14 netmask 255.255.255.240
+ip nat pool NAT_POOL 204.231.55.3 204.231.55.14 netmask 255.255.255.240
 ip nat inside source list NAT_RULE pool NAT_POOL overload
 
 !STATIC
 ip nat inside source static 10.1.10.5 204.231.55.1
 ip nat inside source static 10.1.10.6 204.231.55.17
+ip nat inside source static 10.1.10.7 204.231.55.2
 
 interface Tunnel1
     ip address 192.168.100.1 255.255.255.252
@@ -137,6 +138,7 @@ ip route 0.0.0.0 0.0.0.0 102.54.183.2
 ip route 10.2.0.0 255.255.0.0 192.168.100.2
 
 
+
 ntp authenticate
 ntp authentication-key 1 md5 jelszo
 ntp trusted-key 1
@@ -146,5 +148,7 @@ clock timezone CEST 0
 do write
 
 snmp-server community PUBLIC RO
+snmp-server enable traps config
 snmp-server host 10.1.10.7 version 2c PUBLIC
 snmp-server location KOZPONT
+do write

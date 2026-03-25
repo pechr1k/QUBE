@@ -1,8 +1,8 @@
 hostname SZERVER_SW
 
-ip dhcp snooping
-ip dhcp snooping vlan 10,20,30,40,50,60,70,80,150,200,999
-ip arp inspection vlan 10,20,30,40,50,60,70,80,150,200,999
+no ip dhcp snooping
+no ip dhcp snooping vlan 10,20,30,40,50,60,70,80,150,200,999
+no ip arp inspection vlan 10,20,30,40,50,60,70,80,150,200,999
 
 vlan 999
     name NATIVE
@@ -85,7 +85,7 @@ description toACCSESS
 ntp authenticate
 ntp authentication-key 1 md5 jelszo
 ntp trusted-key 1
-ntp server 10.1.10.5
+ntp server 10.1.10.6
 clock timezone CET 1
 clock timezone CEST 0
 do write

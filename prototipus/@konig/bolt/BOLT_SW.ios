@@ -1,8 +1,8 @@
 hostname BOLT_SW
 
-ip dhcp snooping
-ip dhcp snooping vlan 20,30,40,150,200,999
-ip arp inspection vlan 20,30,40,150,200,999
+no ip dhcp snooping
+no ip dhcp snooping vlan 20,30,40,150,200,999
+no ip arp inspection vlan 20,30,40,150,200,999
 
 vlan 20
     name KASSZA

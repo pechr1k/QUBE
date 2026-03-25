@@ -117,6 +117,7 @@ description WAN_fele
 ip access-list standard NAT_RULE
     deny 10.1.150.0 255.255.255.0
     deny 10.1.10.5
+    deny 10.1.10.7
     deny 10.1.10.6
     permit 10.1.0.0 0.0.255.255
 ip nat pool NAT_POOL 204.231.55.18 204.231.55.30 netmask 255.255.255.240
@@ -125,6 +126,7 @@ ip nat inside source list NAT_RULE pool NAT_POOL overload
 !STATIC
 ip nat inside source static 10.1.10.5 204.231.55.1
 ip nat inside source static 10.1.10.6 204.231.55.17
+ip nat inside source static 10.1.10.7 204.231.55.2
 
 interface Tunnel2
     ip address 192.168.200.1 255.255.255.252
@@ -136,6 +138,10 @@ interface Tunnel2
 
 ip route 10.2.0.0 255.255.0.0 192.168.200.2
 ip route 0.0.0.0 0.0.0.0 185.73.12.42
+
+snmp-server community PUBLIC RO
+snmp-server host 10.1.10.7 version 2c PUBLIC
+snmp-server location KOZPONT
 
 ntp authenticate
 ntp authentication-key 1 md5 jelszo

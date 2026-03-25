@@ -1,0 +1,47 @@
+!KOZPONT_R
+crypto isakmp policy 10
+encryption aes 256
+hash sha256
+authentication pre-share
+group 14
+crypto isakmp key jelszo address 185.73.12.41
+crypto ipsec transform-set MY_TRANSFORM_SET esp-aes 256 esp-sha-hmac
+mode transport
+crypto ipsec profile PROTECT_GRE
+set transform-set MY_TRANSFORM_SET
+interface range Tunnel1-2
+    tunnel protection ipsec profile PROTECT_GRE
+    ip mtu 1400
+    ip tcp adjust-mss 1360
+
+!KOZPONT_BACKUP_R
+crypto isakmp policy 10
+encryption aes 256
+hash sha256
+authentication pre-share
+group 14
+crypto isakmp key jelszo address 185.73.12.41
+crypto ipsec transform-set MY_TRANSFORM_SET esp-aes 256 esp-sha-hmac
+mode transport
+crypto ipsec profile PROTECT_GRE
+set transform-set MY_TRANSFORM_SET
+interface range Tunnel1-2
+    tunnel protection ipsec profile PROTECT_GRE
+    ip mtu 1400
+    ip tcp adjust-mss 1360
+
+!BOLT_R
+crypto isakmp policy 10
+encryption aes 256
+hash sha256
+authentication pre-share
+group 14
+crypto isakmp key jelszo address 185.73.12.41
+crypto ipsec transform-set MY_TRANSFORM_SET esp-aes 256 esp-sha-hmac
+mode transport
+crypto ipsec profile PROTECT_GRE
+set transform-set MY_TRANSFORM_SET
+interface range Tunnel1-2
+    tunnel protection ipsec profile PROTECT_GRE
+    ip mtu 1400
+    ip tcp adjust-mss 1360
