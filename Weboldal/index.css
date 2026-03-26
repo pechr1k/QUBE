@@ -1,0 +1,195 @@
+:root {
+    --dark-bg: #1a1d20;       /* Mélyebb sötét */
+    --accent-orange: #FF6B1A;  /* Qube narancs */
+    --accent-hover: #e65a00;
+    --cream-light: #ffffff;    /* Tiszta fehér a jobb olvashatóságért */
+    --cream-darker: #f8f9fa;
+    --text-main: #2d3436;      
+    --text-muted: #636e72;
+    --text-on-dark: #f8f4e3;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-on-dark);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Header & Logo */
+header {
+    background: linear-gradient(135deg, #212529 0%, #000000 100%);
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 4px solid var(--accent-orange);
+}
+
+.main-logo {
+    max-height: 100px;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px rgba(255, 107, 26, 0.3));
+}
+
+/* Navigáció */
+nav {
+    background-color: rgba(17, 17, 17, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #333;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    color: var(--text-on-dark);
+    text-decoration: none;
+    padding: 20px 25px;
+    display: block;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--accent-orange);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Konténer */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    color: var(--accent-orange);
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+h2::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(to right, var(--accent-orange), transparent);
+}
+
+/* Kártyák és Grid */
+.site-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.site-card {
+    background-color: var(--cream-light);
+    color: var(--text-main);
+    border-radius: 12px;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid var(--accent-orange);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.site-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 107, 26, 0.2);
+}
+
+.site-card h3 {
+    margin-top: 0;
+    color: #1a1d20;
+    font-size: 1.4rem;
+}
+
+.site-card ul {
+    padding-left: 18px;
+    color: var(--text-muted);
+}
+
+.site-card li {
+    margin-bottom: 10px;
+}
+
+/* Eszközlista táblázat */
+.device-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--cream-light);
+    color: var(--text-main);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.device-table th {
+    background-color: var(--accent-orange);
+    color: white;
+    padding: 15px;
+    text-align: left;
+}
+
+.device-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+/* Placeholder az ábrának */
+.topology-placeholder {
+    background: #2d3436;
+    border: 2px dashed var(--accent-orange);
+    border-radius: 12px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-orange);
+    font-size: 1.2rem;
+}
+
+footer {
+    background: #000;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+/* Különleges stílus a dokumentáció gombnak */
+.doc-link {
+    background: var(--accent-orange);
+    color: white !important;
+    border-radius: 5px;
+    margin: 5px 10px;
+    padding: 10px 20px !important;
+}
+
+.doc-link:hover {
+    background: white !important;
+    color: var(--accent-orange) !important;
+}
+
+/* Elválasztó vonal */
+hr {
+    opacity: 0.3;
+}
