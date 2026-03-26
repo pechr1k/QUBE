@@ -3,90 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qube IT Projekt - Központi Portál</title>
+    <title>QUBE Projekt | Informatikai Hálózat</title>
     <link rel="stylesheet" href="qube.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
 <header>
-    <div class="header-content">
-        <img src="logo.svg" alt="Qube Logo" class="main-logo">
-        <h1>QUBE <span class="highlight">Mini PC</span></h1>
-    </div>
+    <img src="logo.svg" alt="Qube Logo" class="main-logo">
+    <h1>QUBE <span class="highlight">Hálózati Portál</span></h1>
+    <p style="color: #888;">Modern hálózati infrastruktúra és automatizáció</p>
 </header>
 
 <nav>
     <ul>
-        <li><a href="#topologia">Topológia</a></li>
-        <li><a href="#szolgaltatasok">Szolgáltatások</a></li>
-        <li><a href="#biztonsag">Biztonság</a></li>
-        <li><a href="#teszt">Tesztelés & Videó</a></li>
+        <li><a href="#home">Kezdőlap</a></li>
+        <li><a href="#news">Hírek & Infó</a></li>
+        <li><a href="#documentation-area" class="doc-link">Projekt Dokumentáció</a></li>
     </ul>
 </nav>
 
 <main class="container">
-    <section id="bemutatkozas" class="content-block">
-        <h2>A Projektről</h2>
-        <p class="intro-text">
-           Innovatív hálózati megoldások a Qube MiniPC számára. Projektünk a Székesfehérvár-Győr-Nyíregyháza tengelyen valósít meg egy teljesen redundáns, biztonságos és automatizált informatikai ökoszisztémát. A tervezéstől a prototípus kivitelezéséig a célunk egy olyan üzemeltetői környezet létrehozása volt, amely megfelel a modern ipari digitalizáció elvárásainak.
-        </p>
-    </section>
-
-    <section id="topologia" class="content-block">
-        <h2>Hálózati Topológia</h2>
-        <p>A hálózat három fő csomópontból áll: Székesfehérvár (HQ), Győr (Gyár) és Nyíregyháza (Üzlet).</p>
-        <div class="topology-placeholder">
-            [Hálózati ábra helye]
+    <section id="home" class="content-block">
+        <h2>Üdvözöljük a Qube belső portálján!</h2>
+        <div class="site-card" style="width: 100%; border-left-color: #2ecc71;">
+            <p>Ez a felület a <strong>Qube IT</strong> munkatársai számára jött létre. Itt érhetik el a napi munkavégzéshez szükséges hirdetményeket, az üzemi szabályzatot és a technikai segédleteket.</p>
+            <div style="display: flex; gap: 20px; margin-top: 20px;">
+                <div style="flex: 1; background: #eee; padding: 15px; border-radius: 8px; color: #333;">
+                    <h4 style="margin-top:0;"><i class="fas fa-calendar-alt"></i> Mai menü</h4>
+                    <p style="font-size: 0.9rem;">Gulyásleves, Túrós csusza<br><small>Helyszín: Üzemi étkezde</small></p>
+                </div>
+                <div style="flex: 1; background: #eee; padding: 15px; border-radius: 8px; color: #333;">
+                    <h4 style="margin-top:0;"><i class="fas fa-exclamation-triangle"></i> Karbantartás</h4>
+                    <p style="font-size: 0.9rem;">Hétvégén a győri telephelyen hálózati fejlesztés várható.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section id="szolgaltatasok" class="content-block">
-        <h2>Telephelyi Szolgáltatások</h2>
-        
+    <section id="news" class="content-block">
+        <h2>Friss Hírek</h2>
         <div class="site-grid">
             <div class="site-card">
-                <h3>Székesfehérvár (HQ)</h3>
+                <h3>Új Qube Mini PC-k érkeztek</h3>
+                <p>Megérkezett a legújabb szállítmány az Asus ExpertCenter gépekből. A kiosztás hétfőn kezdődik.</p>
+            </div>
+            <div class="site-card">
+                <h3>VPN használat</h3>
+                <p>Kérjük a távmunkában dolgozókat, hogy minden esetben használják az IPsec VPN alagutat.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr style="border: 0; height: 2px; background: var(--accent-orange); margin: 80px 0;">
+
+    <div id="documentation-area">
+        <header style="background: transparent; padding: 20px 0; border: none; text-align: left;">
+            <h2 style="font-size: 2.2rem; color: var(--accent-orange);">Hálózati Projekt Dokumentáció</h2>
+            <p style="color: #aaa;">Szigorúan bizalmas, üzemeltetői adatok</p>
+        </header>
+
+        <section id="topologia" class="content-block">
+             <h3>Fizikai és Logikai Topológia</h3>
+             <div class="topology-placeholder"> [Hálózati ábra helye] </div>
+        </section>
+
+        <section id="eszkozok" class="content-block">
+            <h3>Eszközök jegyzéke</h3>
+            <table class="device-table">
+            <thead>
+                <tr>
+                    <th>Eszköz Típus</th>
+                    <th>Modell</th>
+                    <th>Mennyiség</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Router</td><td>Cisco ISR 4321 / 4331</td><td>6 db</td></tr>
+                <tr><td>Switch (L3)</td><td>Cisco Catalyst 3850-24T-S</td><td>2 db</td></tr>
+                <tr><td>Switch (L2)</td><td>Cisco Catalyst 2960X</td><td>7 db</td></tr>
+                <tr><td>Szerver</td><td>Dell PowerEdge T440</td><td>3 db</td></tr>
+                <tr><td>Munkaállomás</td><td>Asus ExpertCenter (Intel Core)</td><td>40 db</td></tr>
+            </tbody>
+        </table>
+        </section>
+
+         <section id="szolgaltatasok" style="margin-bottom: 60px;">
+        <h2>Telephelyi Szolgáltatások</h2>
+        <div class="site-grid">
+            <div class="site-card">
+                <h3><i class="fas fa-building"></i> Székesfehérvár (HQ)</h3>
                 <ul>
-                    <li><strong>Active Directory:</strong> Központosított OU struktúra & GPO</li>
-                    <li><strong>DHCP / DNS / NTP:</strong> Központi kiszolgálás</li>
-                    <li><strong>IIS / RADIUS / TFTP:</strong> Vállalati szolgáltatások</li>
+                    <li><strong>Active Directory:</strong> Központi AD DS, DNS és DHCP.</li>
+                    <li><strong>Biztonság:</strong> RADIUS hitelesítés (802.1X).</li>
+                    <li><strong>Management:</strong> TFTP és NTP időkiszolgáló.</li>
                 </ul>
             </div>
-
             <div class="site-card">
-                <h3>Győr (Gyár)</h3>
+                <h3><i class="fas fa-industry"></i> Győr (Gyár)</h3>
                 <ul>
-                    <li><strong>AD Replikáció:</strong> Helyi címtár elérés</li>
-                    <li><strong>IIS / RADIUS / TFTP:</strong> Helyi gyártási támogatás</li>
-                    <li><strong>DHCP & DNS:</strong> Helyi ipari hálózat</li>
+                    <li><strong>Redundancia:</strong> Helyi AD replikáció és DNS.</li>
+                    <li><strong>Gyártás:</strong> Elkülönített VLAN-ok a gépsoroknak.</li>
+                    <li><strong>Hálózat:</strong> L3 switching és intervlan routing.</li>
                 </ul>
             </div>
-
             <div class="site-card">
-                <h3>Nyíregyháza (Üzlet)</h3>
+                <h3><i class="fas fa-shopping-cart"></i> Nyíregyháza (Bolt)</h3>
                 <ul>
-                    <li><strong>Helyi DHCP & DNS:</strong> Gyors hálózati elérés</li>
-                    <li><strong>RADIUS & TFTP:</strong> Eszközkezelés és WiFi</li>
-                    <li><strong>VPN:</strong> Biztonságos központi elérés</li>
+                    <li><strong>Kapcsolat:</strong> IPsec VPN alagút a központ felé.</li>
+                    <li><strong>Vendég hálózat:</strong> RADIUS alapú WiFi elérés.</li>
+                    <li><strong>Helyi igények:</strong> Helyi fájlmegosztás (SMB).</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="biztonsag" class="content-block">
-        <h2>Biztonsági Megvalósítások</h2>
-        <div class="security-list">
-            <ul>
-                <li><strong>Tűzfal:</strong> Hardveres védelem a külső forgalom ellen.</li>
-                <li><strong>ACL:</strong> Részleg alapú szűrés a VLAN-ok között.</li>
-                <li><strong>Automatizált mentés:</strong> Powershell és Bash szkriptek használata.</li>
+    <section id="automatizacio">
+        <h2>Hálózatautomatizáció</h2>
+        <div class="site-card" style="border-left: 5px solid #2ecc71; width: 100%; box-sizing: border-box;">
+            <p>A projekt során kiemelt figyelmet kaptak a szkriptek:</p>
+            <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                <li><i class="fab fa-windows"></i> <strong>PowerShell:</strong> Automatikus AD felhasználó generálás CSV-ből.</li>
+                <li><i class="fab fa-linux"></i> <strong>Bash:</strong> Napi biztonsági mentés a szerver konfigurációkról.</li>
+                <li><i class="fas fa-code"></i> <strong>Cisco CLI:</strong> Automatizált ACL generálás a VLAN szűréshez.</li>
             </ul>
         </div>
     </section>
+
+</main>
+        
+        </div>
 </main>
 
 <footer>
-    <p>&copy; 2026 - Vizsgacsapat: Nyári Patrik, Gábriel Milán (13.b) | Informatikai technikus vizsgaremek</p>
+    <p>&copy; 2026 - QUBE IT Projekt | 13.B Vizsgaremek</p>
+    <p style="font-size: 0.8rem; margin-top: 10px;">Készítették: Nyári Patrik & Gábriel Milán</p>
 </footer>
 
 </body>
