@@ -1,12 +1,3 @@
-script
-
-------RAER OSSZERAKAS UTAN: ------
-LOGIKAI HSRP cím (?)
-CHAP virtualis
-acl zabbix smnp
-IPSEC
-
-
 6.2.4. DAI és DHCP FELÜGYELET
 -virtuális kamu
 6.2.7. TŰZFALSZABÁLYOK
@@ -14,4 +5,4 @@ IPSEC
 6.2.10. LAN FORGALOMIRÁNYÍTÁS 
 -virtualis kamu
 6.2.11. WAN KAPCSOLATOK
--ha kell kamu	
+-ha kell kamu
