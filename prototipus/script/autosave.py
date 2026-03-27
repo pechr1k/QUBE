@@ -6,7 +6,7 @@ import json
 import paramiko
 import time
 
-TFTP_SERVER = "192.168.1.100"
+TFTP_SERVER = "10.1.10.6"
 
 with open("devices.json") as f:
     devices = json.load(f)
