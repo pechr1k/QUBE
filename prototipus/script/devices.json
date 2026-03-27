@@ -1,0 +1,34 @@
+[
+    {
+    "hostname": "FOLDSZINT_SW",
+    "area": "KOZPONT",
+    "ip": "10.1.150.6",
+    "username": "admin",
+    "password": "1234",
+    "type": "cisco"
+    },
+    {
+    "hostname": "EMELET_SW",
+    "area": "KOZPONT",
+    "ip": "10.1.150.7",
+    "username": "admin",
+    "password": "1234",
+    "type": "cisco"
+    },
+    {
+    "hostname": "SZERVER_SW",
+    "area": "KOZPONT",
+    "ip": "10.1.150.8",
+    "username": "admin",
+    "password": "1234",
+    "type": "cisco"
+    },
+    {
+    "hostname": "BOLT_SW",
+    "area": "BOLT",
+    "ip": "10.2.150.2",
+    "username": "admin",
+    "password": "1234",
+    "type": "cisco"
+    }
+]
