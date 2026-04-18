@@ -1,9 +1,12 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.5">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36">
   <diagram name="Oldal-1" id="A54sxu54XGUslNclZXXZ">
-    <mxGraphModel dx="632" dy="324" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1768" dy="2227" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="S--_IEqvpWEQuwEWF48m-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=none;" value="" vertex="1">
+          <mxGeometry height="880" width="425" x="165" y="-10" as="geometry" />
+        </mxCell>
         <mxCell id="8g1RySLTu22AYQdnkOB4-3" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="LINUX SRV&lt;div&gt;10.1.10.6&lt;/div&gt;" vertex="1">
           <mxGeometry height="25" width="70" x="480" y="250" as="geometry" />
         </mxCell>
@@ -198,14 +201,11 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CJ55euDttgTK4Hb038bu-45" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="CLIENT&amp;nbsp;&lt;div&gt;vlan 60&lt;/div&gt;" vertex="1">
+        <mxCell id="CJ55euDttgTK4Hb038bu-45" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="CLIENT&amp;nbsp;&lt;div&gt;VLAN 60&lt;/div&gt;" vertex="1">
           <mxGeometry height="30" width="60" x="490" y="65" as="geometry" />
         </mxCell>
         <mxCell id="CJ55euDttgTK4Hb038bu-47" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="WIN SRV&lt;div&gt;10.1.10.5&lt;/div&gt;" vertex="1">
           <mxGeometry height="25" width="60" x="485" y="210" as="geometry" />
-        </mxCell>
-        <mxCell id="CJ55euDttgTK4Hb038bu-48" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="acc: gig 1/0/5-10" vertex="1">
-          <mxGeometry height="25" width="60" x="440" y="800" as="geometry" />
         </mxCell>
         <mxCell id="8g1RySLTu22AYQdnkOB4-4" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="ZABBIX SRV&lt;div&gt;10.1.10.7&lt;/div&gt;" vertex="1">
           <mxGeometry height="25" width="80" x="480" y="284" as="geometry" />
@@ -217,6 +217,17 @@
           <mxGeometry relative="1" x="0.8462" y="-2" as="geometry">
             <mxPoint x="2" y="-2" as="offset" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="S--_IEqvpWEQuwEWF48m-3" edge="1" parent="1" source="S--_IEqvpWEQuwEWF48m-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="440" y="814.9310344827586" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="S--_IEqvpWEQuwEWF48m-2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="CLIENT&amp;nbsp;&lt;div&gt;VLAN 30&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="490" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="S--_IEqvpWEQuwEWF48m-1" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="Gig 1/0/9" vertex="1">
+          <mxGeometry x="449" y="815" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
