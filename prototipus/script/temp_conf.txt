@@ -1,0 +1,35 @@
+hostname FOLDSZINT_SW
+!
+vlan 10
+ name IT
+vlan 20
+ name RECEPTION
+vlan 150
+ name ADMIN
+vlan 200
+ name GUEST
+vlan 999
+ name NATIVE
+!
+interface Vlan150
+ ip address 10.1.150.6 255.255.255.0
+ no shutdown
+!
+ip default-gateway 10.1.150.3
+!
+interface range GigabitEthernet1/0/5-7
+ description toACCESS
+ switchport mode access
+ switchport access vlan 200
+ spanning-tree bpduguard enable
+ spanning-tree portfast
+ storm-control broadcast level 40.00
+!
+interface GigabitEthernet1/0/8
+ description RECEPCIO_PC
+ switchport mode access
+ switchport access vlan 20
+ spanning-tree bpduguard enable
+ spanning-tree portfast
+ storm-control broadcast level 30.00
+!

@@ -1,0 +1,128 @@
+{
+  "switches": {
+    "10.2.150.2": {
+      "device_ip": "10.2.150.2",
+      "hostname": "BOLT_SW",
+      "model": "Cisco Catalyst 2960X-24TS-L",
+      "serial": "FDO2417BOLT",
+      "ios_version": "15.2(7)E9",
+      "management_vlan": 150,
+      "ip_settings": {
+        "address": "10.2.150.2",
+        "subnet_mask": "255.255.255.0",
+        "default_gateway": "10.2.150.1"
+      },
+      "vlans": [
+        {
+          "id": 20,
+          "name": "KASSZA",
+          "status": "active",
+          "note": ""
+        },
+        {
+          "id": 30,
+          "name": "IRODA",
+          "status": "active",
+          "note": ""
+        },
+        {
+          "id": 40,
+          "name": "RAKTAR",
+          "status": "active",
+          "note": ""
+        },
+        {
+          "id": 150,
+          "name": "ADMIN",
+          "status": "active",
+          "note": "Management VLAN"
+        },
+        {
+          "id": 200,
+          "name": "GUEST",
+          "status": "active",
+          "note": ""
+        },
+        {
+          "id": 999,
+          "name": "NATIVE",
+          "status": "active",
+          "note": "Native trunk VLAN"
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "Gi1/0/1",
+          "description": "BOLT_R_fele",
+          "mode": "trunk",
+          "access_vlan": 20,
+          "trunk_native_vlan": 999,
+          "shutdown": false
+        },
+        {
+          "name": "Gi1/0/5",
+          "description": "toACCSESS",
+          "mode": "access",
+          "access_vlan": 200,
+          "trunk_native_vlan": 1,
+          "shutdown": false
+        },
+        {
+          "name": "Gi1/0/6",
+          "description": "toACCSESS",
+          "mode": "access",
+          "access_vlan": 200,
+          "trunk_native_vlan": 1,
+          "shutdown": false
+        },
+        {
+          "name": "Gi1/0/7",
+          "description": "toACCSESS",
+          "mode": "access",
+          "access_vlan": 200,
+          "trunk_native_vlan": 1,
+          "shutdown": false
+        },
+        {
+          "name": "Gi1/0/8",
+          "description": "toACCSESS",
+          "mode": "access",
+          "access_vlan": 200,
+          "trunk_native_vlan": 1,
+          "shutdown": false
+        },
+        {
+          "name": "Gi1/0/9",
+          "description": "toACCSESS",
+          "mode": "access",
+          "access_vlan": 200,
+          "trunk_native_vlan": 1,
+          "shutdown": false
+        },
+        {
+          "name": "Gi1/0/10",
+          "description": "toACCSESS",
+          "mode": "access",
+          "access_vlan": 200,
+          "trunk_native_vlan": 1,
+          "shutdown": false
+        }
+      ],
+      "event_log": [
+        "Current running configuration loaded for BOLT_SW",
+        "DHCP snooping disabled globally",
+        "DHCP snooping disabled on VLANs 20,30,40,150,200,999",
+        "ARP inspection disabled on VLANs 20,30,40,150,200,999",
+        "Interface Gi1/0/1 configured as trunk, native VLAN 999",
+        "Allowed trunk VLANs on Gi1/0/1: 20,30,40,150,200,999",
+        "Interface range Gi1/0/5-10 configured as access VLAN 200",
+        "BPDU Guard and PortFast enabled on Gi1/0/5-10",
+        "Local users configured: admin privilege 15, user privilege 1",
+        "VTY transport input set to SSH",
+        "NTP server configured: 10.1.10.5",
+        "Timezone configured: CET/CEST",
+        "write memory completed"
+      ]
+    }
+  }
+}
