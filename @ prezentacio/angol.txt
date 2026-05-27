@@ -1,0 +1,24 @@
+Team Roles & Responsibilities
+Project Goal
+
+Our goal was to build a modern, secure, and reliable IT infrastructure for production, office, and commercial use.
+We wanted to create a stable network system with good performance and easy management.
+
+Project Management
+
+We worked together using GitHub for collaboration and version control.
+Tasks were divided between team members, and we regularly checked the progress of the project.
+
+Team Members
+Gábriel Milán
+Installed and configured the server operating systems
+Tested the system and improved performance
+Helped solve technical problems during development
+Nyári Patrik
+Designed the network structure
+Planned the network topology
+Created scripts and prepared the documentation
+Obstacles and Problems
+
+One of the biggest problems was an OSPF loop between the two central routers.
+We solved this issue by using static routes, which made the network stable again.
